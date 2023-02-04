@@ -1,0 +1,29 @@
+{
+    "name": "siktec/bsik-app",
+    "type": "project",
+    "description": "Lightweight CMS framework. Boilerplate project for getting started.",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "SIKTEC Labs",
+          "email": "siktec.lab@gmail.com"
+        }
+    ],
+    "repositories": [
+    ],
+    "require": {
+        "php": ">=8.0.0",
+        "siktec/bsik": "dev-main"
+    },
+    "autoload": {
+    },
+    "scripts": {
+        "post-install-cmd": [
+
+        ],
+        "post-update-cmd": [
+            
+        ]
+    },
+    "minimum-stability": "dev"
+}
