@@ -3,41 +3,10 @@ RewriteOptions inherit
 AddDefaultCharset UTF-8
 #ErrorDocument 404 /index.php?page=unknown 
 
-#----------------------------------------------------------------cp:ppd
-# End section managed by cPanel: Password Protected Directories -cp:ppd
-#----------------------------------------------------------------cp:ppd
-
 # /proxy/ indicates to route through the apache proxy to preserve the GET and POST params.
 <IfModule mod_rewrite.c>
     RewriteEngine On
-
-    ## Force HTTPS + WWW
-    # RewriteCond %{HTTP_HOST} !^www\.
-    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L,QSA]
-    # RewriteCond %{HTTPS} off
-    # RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-    # ## Remove trailing slash from URL
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-#### always normalize > www and https. ####
-    
-    # skip all files and directories from rewrite rules below
-    # RewriteCond %{REQUEST_FILENAME} -d [OR]
-    # RewriteCond %{REQUEST_FILENAME} -f
-    # RewriteRule ^ - [L]
-
-    # RewriteCond %{HTTPS} off [OR] 
-    # RewriteCond %{HTTP_HOST} !^www\. [NC]
-    # RewriteCond %{HTTP_HOST} ^(.*)$  [NC]
-    # RewriteRule /proxy/(.*) https://www.siktec.net/$1  [NC,P,L,QSA]
-
-#### convert path to the needed values: ####
-    # RewriteBase /bsik1
-    # RewriteRule ^(articles)/([\w\d\-]+)/?$ /?page=$1&art=$2 [NC,L,QSA]
-    # RewriteRule ^(signup)/([\w\d\-]+)/?$ /?page=$1&type=$2 [NC,L,QSA]
-    # RewriteRule ^(user)/([\w\d\-]+)/?$ /?page=$1&tab=$2 [NC,L,QSA]
-    # RewriteRule ^(logout)/?$ /?page=$1 [NC,L,P]
+    # RewriteBase /folder
     RewriteRule ^(error)/?$ index.php?module=$1&type=$1 [NC,L,QSA]
     RewriteRule ^(logout)/?$ index.php?module=$1&type=$1 [NC,L,QSA] 
     RewriteRule ^(api)/([\w\d\-\_]+)/?$ index.php?module=$2&type=$1 [NC,L,QSA]

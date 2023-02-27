@@ -10,17 +10,15 @@
     ->Creation, initial.
 *******************************************************************************/
 
+/******************************  Configuration - General  *****************************/
+define("BSIK_SET_DOMAIN", "http://localhost");
+define("BSIK_IN_FOLDER",  "folder");
+
 /************************** System Configuration & Trace ******************************/
 define('PLAT_CHARSET',                      'utf-8');
 define('PLAT_HASH_SALT',                    'xxxxx');
-if (!defined('USE_BSIK_ERROR_HANDLERS'))
-    define('USE_BSIK_ERROR_HANDLERS',       true);
 define('ERROR_METHOD',                      'inline'); // inline | redirect | hide
-
-/******************************  headers and ini  *****************************/
-header('Content-Type: text/html; charset='.PLAT_CHARSET);
-ini_set('log_errors', true);
-error_reporting(-1); // -1 all, 0 don't
+if (!defined('USE_BSIK_ERROR_HANDLERS')) define('USE_BSIK_ERROR_HANDLERS', true);
 
 /******************************  Configuration - DataBase  *****************************/
 $conf = [];
