@@ -1,0 +1,130 @@
+
+
+/*
+ * Roles tables: 
+ */
+
+.role-name-tag {
+    display:inline-block;
+    background-color: var(--bs-blue);
+    padding: 3px 12px 1px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.role-name-tag i {
+    font-size: 0.9em;
+    margin-right: 4px;
+}
+.group-granted-display {
+    display: flex;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+.group-granted-display .single-group {
+    background-color: var(--bs-purple);
+    padding: 3px 8px 1px 8px;
+    border-radius: 5px;
+    text-align: left;
+}
+.group-granted-display .single-group i {
+    font-size: 0.9em;
+}
+.group-granted-display .single-group strong {
+    margin-right: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/*
+ * privileges form: 
+ */
+.form-selected-priv .row .group-meta {
+    color: var(--admin-dark-text);
+    font-weight: 600;
+}
+.form-selected-priv .row .group-meta i {
+    margin-right:5px;
+}
+.form-selected-priv .row .group-meta .group-meta-description {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--admin-grey-text);
+    display: block;
+    font-size: 0.85em;
+}
+
+.form-selected-priv .row .list-group {
+    flex-wrap: wrap;
+    border: 1px solid var(--admin-white-text);
+}
+
+.form-selected-priv .row .list-group-item {
+    width: 20%;
+    border: 0;
+    color: var(--bsik-text-dark-overwhite-color);
+}
+.form-selected-priv .row .list-group-item.revised {
+    color: blue;
+}
+
+
+/*
+ * Role create modal: 
+ */
+.role-metadata-form label {
+    font-weight: 500;
+    color: var(--bsik-text-dark-overwhite-color);
+}
+.role-metadata-form label em {
+    font-weight: 400;
+    color: var(--admin-grey-text);
+    font-size: 0.85em;
+}
+.role-metadata-form input[type="text"],
+.role-metadata-form textarea,
+.role-metadata-form input[type="text"]:focus,
+.role-metadata-form textarea:focus {
+    color: var(--bsik-text-dark-overwhite-color);
+}
+.role-metadata-form .modal-sub-header {
+    border-bottom: 3px solid #e7e7e7;
+    margin-bottom: 0.75rem;
+}
+
+#role-edit-modal .alert .role-name {
+    font-weight: 600;
+}
+
+#role-create-modal .modal-sub-header h4,
+#role-edit-modal .modal-sub-header h4 {
+    color: var(--bsik-text-dark-overwhite-color);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+#role-create-modal .roledata-form-container,
+#role-edit-modal .roledata-form-container {
+    margin-bottom: 0.9rem;
+}
+#role-create-modal .rolepriv-form-container {
+    max-height: 35vh;
+    overflow-y: auto;
+}
+
+/*
+ * Editing privileges modal: 
+ */
+#roles-editing-modal .alert {
+
+}
+#roles-editing-modal .alert .role-name {
+    font-weight: 600;
+}
+#roles-editing-modal .alert .role-description {
+    font-weight: 400;
+    display: block;
+    font-style: italic;
+    opacity: .8;
+}
+

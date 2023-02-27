@@ -5,25 +5,106 @@
     "license": "MIT",
     "authors": [
         {
-          "name": "SIKTEC Labs",
-          "email": "siktec.lab@gmail.com"
+          "name":   "SIKTEC Labs",
+          "email":  "siktec.lab@gmail.com"
         }
-    ],
-    "repositories": [
     ],
     "require": {
         "php": ">=8.0.0",
-        "siktec/bsik": "dev-main"
+        "siktec/bsik": "dev-master",
+        "packages/jquery": "3.6.0",
+        "packages/raphael-js": "2.3.1",
+        "packages/morris-js": "0.5.1",
+        "packages/perfect-scrollbar": "1.5.5",
+        "packages/zingtouch": "1.0.6",
+        "packages/filepond": "^4",
+        "packages/filepond-plugin-rename": "^1",
+        "packages/filepond-plugin-file-type": "^1",
+        "fortawesome/font-awesome": "5.15.*",
+        "twbs/bootstrap": "^5.0.0",
+        "wenzhixin/bootstrap-table": "1.18.*"
     },
     "autoload": {
+        
     },
     "scripts": {
         "post-install-cmd": [
-
+            "php ./install/install.php"
         ],
         "post-update-cmd": [
-            
+            "php ./install/install.php"
         ]
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": [
+                {
+                    "name": "packages/raphael-js",
+                    "version": "2.3.1",
+                    "dist": {
+                        "url": "https://github.com/DmitryBaranovskiy/raphael/archive/refs/tags/v2.3.0.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/morris-js",
+                    "version": "0.5.1",
+                    "dist": {
+                        "url": "https://github.com/morrisjs/morris.js/archive/refs/tags/0.5.1.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/jquery",
+                    "version": "3.6.0",
+                    "dist": {
+                        "url": "https://github.com/jquery/jquery/archive/refs/tags/3.6.0.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/perfect-scrollbar",
+                    "version": "1.5.5",
+                    "dist": {
+                        "url": "https://github.com/mdbootstrap/perfect-scrollbar/archive/refs/tags/1.5.5.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/zingtouch",
+                    "version": "1.0.6",
+                    "dist": {
+                        "url": "https://github.com/zingchart/zingtouch/archive/refs/tags/1.0.6.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/filepond",
+                    "version": "4.28.2",
+                    "dist": {
+                        "url": "https://github.com/pqina/filepond/archive/refs/tags/4.28.2.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/filepond-plugin-rename",
+                    "version": "1.1.8",
+                    "dist": {
+                        "url": "https://github.com/pqina/filepond-plugin-file-rename/archive/refs/tags/1.1.8.zip",
+                        "type": "zip"
+                    }
+                },
+                {
+                    "name": "packages/filepond-plugin-file-type",
+                    "version": "1.2.6",
+                    "dist": {
+                        "url": "https://github.com/pqina/filepond-plugin-file-validate-type/archive/refs/tags/1.2.6.zip",
+                        "type": "zip"
+                    }
+                }
+            ]
+        }   
+    ]
 }

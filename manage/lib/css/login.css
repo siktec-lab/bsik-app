@@ -1,0 +1,136 @@
+.login-box {
+    margin-top: 75px;
+    height: auto;
+    background: var(--admin-base-lighter-background);
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0px 7px 4px -4px rgb(0 0 0 / 46%), 0px -2px 7px -1px rgb(0 0 0 / 51%);
+}
+
+.plat-logo {
+    padding: 25px;
+}
+
+.plat-logo img {
+    height: 60px;
+}
+
+.login-title {
+    margin-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--admin-white-text);
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+.login-form {
+    margin-top: 35px;
+    text-align: left;
+}
+
+input.form-control {
+    background-color: var(--admin-base-lighter-background);
+    border: none;
+    border-bottom: 2px solid var(--admin-base-orange);
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: var(--admin-white-text);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+    border-bottom: 2px solid var(--admin-white-text);
+}
+
+input:-internal-autofill-selected {
+    background-color: var(--admin-base-lighter-background) !important;
+    background-image: none !important;
+    color: var(--admin-white-text) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border-bottom: 2px solid var(--admin-base-orange);
+    -webkit-background-clip: text;
+    /* Supprime le background autofill, utile pour le border radius */
+    box-shadow: 0 0 0 50px #292a2d inset;
+    /* Ajoute un fake background à base d'ombrage aplatit */
+    -webkit-text-fill-color: var(--admin-white-text);
+}
+
+.form-group {
+    margin-bottom: 40px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    background-color: #2f2f2f;
+    color: var(--admin-white-text);
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: 12px;
+    color: var(--admin-grey-text);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--admin-white-text);
+    color: var(--admin-white-text);
+    border-radius: 3px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 10px 50px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+    color: var(--admin-base-lighter-background) !important;
+    background-color: var(--admin-base-orange);
+    right: 0px;
+    border-color: var(--admin-base-orange);
+}
+
+.btn-outline-primary:focus {
+    color: var(--admin-base-orange);
+    border: 2px solid var(--admin-base-orange);
+    box-shadow: 0 0 6px 4px rgb(251 176 64 / 50%);
+}
+
+.login-message {
+    text-align: center;
+    color: var(--admin-red-text);
+    padding: 0px 20px 20px 20px;
+    font-size: 12px;
+}
+
+.plat-info {
+    color: var(--admin-grey-text);
+    text-align: center;
+    padding-top: 15px;
+}

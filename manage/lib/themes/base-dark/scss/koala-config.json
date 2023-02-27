@@ -1,0 +1,33 @@
+{
+
+    "mappings": [{
+        "src": ".",
+        "dest": "../"
+    }],
+
+    "ignores": ["*.css"],
+
+    "options": {
+
+        "autoCompile": true,
+
+        "outputStyle": "compressed",
+
+        "lineComments": false,
+
+        "debugInfo": true,
+
+        "sourceMap": true,
+
+        "unixNewlines": false,
+
+        "autoprefix": false,
+        "autoprefixConfig": "> 1%, last 2 versions, Firefox ESR, Opera 12.1"
+    },
+
+    "customOptions": [],
+
+    "includePaths": [],
+
+    "requireLibs": []
+}

@@ -1,0 +1,49 @@
+{
+	"schema" 	  : "1.0.0",
+	"schema_type" : "module",
+	"type"  	  : "included", /* included | remote  - included means all source files are whithin this zip folder*/
+	"name"  	  : "dev", /* module name must be the same as the static folder */
+	"rep"   	  : "https://github.com/siktec-lab/bsik-module-dev", /* also used by remote type */
+	"ver"   	  : "1.0.1",
+	"title" 	  : "Developer Tools",
+	"description" : "Official Bsik developer tools.",
+	"author" : {
+		"name" 	: "SIKTEC - Shlomo Hassid",
+		"email" : "siktec.lab@gmail.com",
+		"about" : "SIKTEC core developer",
+		"web" 	: "https://siktec.net"
+	},
+	"menu" : {
+		// "text": "Developer",
+		"title": "Bsik developer tools",
+		"desc":  "Official Bsik developer tools.",
+		"icon":  "code",
+		"action": "dev",
+		"order": 5,
+		"sub": [
+			{
+				"text": "Forms",
+				"title": "Bootstrap 5 Forms",
+				"icon": "fas fa-align-justify",
+				"action": "forms",
+				"order": 1
+			},
+			{
+				"text": "Colors",
+				"title": "Color Theme",
+				"icon": "palette",
+				"action": "colors",
+				"order": 2
+			}
+		]
+	},
+	"tables_prefix" : "m_dev",
+	"depends" : [
+		{ "module"  : "core", "version" : ">=1.0.1" }
+	],
+	"require"		: {
+		"php": ">=8.0.0"
+	},
+    "autoload": {
+    }
+}

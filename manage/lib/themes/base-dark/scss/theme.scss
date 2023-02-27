@@ -1,0 +1,62 @@
+/******************************************************************************/
+
+// Created by: shlomo hassid.
+// Release Version : 1.0.0
+// Creation Date: 2021-03-30
+// Copyright 2021, SIKTEC.
+
+/******************************************************************************/
+
+
+/*****************************      Changelog       ****************************
+version:
+    -> initial.
+*******************************************************************************/
+//Fonts and additional icons:
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+@import "../../bootstrap/functions";
+// 2. Include any default variable overrides here
+@import "theme-variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../bootstrap/variables"; 
+@import "../../bootstrap/mixins";
+
+// 4. Include any optional Bootstrap components as you like
+@import "../../bootstrap/root";
+@import "../../bootstrap/reboot";
+@import "../../bootstrap/type";
+@import "../../bootstrap/bootstrap-utilities";
+@import "../../bootstrap/images";
+@import "../../bootstrap/containers";
+@import "../../bootstrap/grid";
+@import '../../bootstrap/tables';
+@import '../../bootstrap/buttons';
+@import "../../bootstrap/transitions";
+@import '../../bootstrap/button-group';
+@import '../../bootstrap/dropdown'; 
+@import '../../bootstrap/forms';
+@import '../../bootstrap/badge';
+@import '../../bootstrap/alert';
+@import '../../bootstrap/list-group';
+@import '../../bootstrap/card';
+@import '../../bootstrap/close';
+@import "../../bootstrap/modal";
+@import "../../bootstrap/helpers";
+@import "../../bootstrap/spinners";
+
+// 5. Add additional custom theme code here
+@import 'theme-mixins';
+@import 'theme-general';
+@import 'theme-buttons';
+@import 'theme-dyn-tables';
+@import 'theme-forms';
+@import 'theme-topbar.scss';
+@import 'theme-modules';
+@import 'theme-sys-notify'; 
+@import 'theme-modals';
+@import 'theme-bsik-cards';
+@import 'theme-bsik-components';

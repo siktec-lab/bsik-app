@@ -1,0 +1,6 @@
+.container-module h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}

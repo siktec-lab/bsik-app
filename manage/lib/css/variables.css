@@ -1,0 +1,65 @@
+/******************************************************************************
+// Created by: Shlomo Hassid.
+// Release Version : 1.0.1
+// Creation Date: 22/05/2020
+// Copyright 2020, Shlomo Hassid.
+/******************************************************************************/
+
+
+/*****************************      Changelog       ****************************
+1.0.1:
+    ->intial, creation
+*******************************************************************************/
+
+
+/* BASE VARIABLES **********************************************************/
+
+:root {
+    --admin-base-background: #151515;
+    --admin-base-lighter-background: #242424;
+    --admin-base-orange: #fbb040;
+    --admin-white-text: #CECECE;
+    --admin-grey-text: #6C6C6C;
+    --admin-dark-text: #4f4f4f;
+    --admin-red-text: #ff8d8d;
+    --admin-base-font-size: 14px;
+}
+
+
+/* ADMIN PANEL STRUCTURE **********************************************************/
+
+:root {
+    --top-admin-bar-height: 65px;
+    --bottom-admin-footer-height: 30px;
+    --side-admin-menu-width: 200px;
+    --grid-border-spacer-color: #484747;
+    --module-content-padding: 15px 10px;
+}
+
+
+/* ADMIN TOP BAR **********************************************************/
+
+:root {}
+
+
+/* ADMIN SIDE MENU **********************************************************/
+
+:root {
+    --admin-side-menu-entry-hover: #2a2a2a;
+    --admin-side-menu-text-hover-color: var(--admin-base-orange);
+}
+
+
+/* ADMIN TABLES **********************************************************/
+
+:root {
+    --admin-table-base-background: #353535;
+    --admin-table-base-border-color: #4c4c4c;
+}
+
+
+/* ADMIN MODULE CONTENT BASE **********************************************************/
+
+:root {
+    --admin-module-content-text-color: var(--admin-white-text);
+}

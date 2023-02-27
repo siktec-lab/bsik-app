@@ -1,0 +1,186 @@
+@import "theme-colors";
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Base Font:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// $font-family-sans-serif: // Safari for OS X and iOS (San Francisco)
+// -apple-system, // Chrome < 56 for OS X (San Francisco)
+// BlinkMacSystemFont, // Windows
+// "Roboto", // Android
+// "Roboto", // Basic web fallback
+// "Helvetica Neue",
+// Arial,
+// sans-serif, // Emoji fonts
+// "Apple Color Emoji",
+// "Segoe UI Emoji",
+// "Segoe UI Symbol" !default;
+
+$font-family-sans-serif: "Poppins",sans-serif;
+$font-size-root: 14px;
+
+$font-sizes: (
+  1: 1.80rem,
+  2: 1.65rem,
+  3: 1.5rem,
+  4: 1.35rem,
+  5: 1.15rem,
+  6: 1rem,
+  7: 0.95rem,
+  8: 0.9rem,
+  9: 0.85rem,
+  10: 0.8rem,
+  11: 0.75rem
+);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Dyn Tables variables:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// $dyn-table-border-color: bsik-colors("secondary", "lighten-1");
+// $dyn-table-hover-bg:    darken(bsik-colors("secondary", "base"), 20%);
+// $dyn-table-background:  bsik-colors("secondary", "darken-1");
+// $dyn-table-color: $text-main-color;
+// $dyn-table-dark-border-color: #4c4c4c;
+// $dyn-table-toolbar-btn-bg: $primary;
+// $dyn-table-toolbar-btn-color: bsik-colors("secondary", "darken-1");
+// $dyn-table-actions-color: bsik-colors("blue", "accent-2");
+// $dyn-table-pager-bg: $light;
+// $dyn-table-pager-border: bsik-colors("secondary", "lighten-4");
+// $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Module content:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+$module-header-title-color      : $text-main-color-s2;
+$module-header-title-size       : 1.8rem;
+$module-header-which-color      : bsik-colors("primary", "lighten-2");
+$module-header-subtitle-color   : $text-main-color-f2;
+$module-header-border-color     : hsla(0,0%,100%,.2);
+$module-title-color             : lighten($primary, 13%);
+$module-title-size              : 1.4rem;
+$module-title-border-color      : hsla(0,0%,100%,.2);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Overwrite bootstrap base variables: *colors are handled in theme-colors
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+/** Bootstraps Base: ****************************************/
+$body-bg          : bsik-colors("secondary", "darken-2");
+$body-color       : $text-main-color;
+$font-weight-base : 400;
+$font-size-base   : 1rem;
+$font-size-sm     : $font-size-base * .875;
+$font-size-lg     : $font-size-base * 1.25;
+$line-height-base : 1.5;
+$line-height-sm   : 1.25;
+$line-height-lg   : 2;
+$border-radius    : .25rem !default;
+$border-radius-sm : .2rem !default;
+$border-radius-lg : .3rem !default;
+$border-radius-pill : 50rem !default;
+$input-color      : $text-negative-color;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// List group:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+$list-group-color           : $text-main-color;
+$list-group-bg              : transparent;
+$list-group-border-color    : gray;
+$list-group-border-width    : 1px;
+$list-group-border-radius   : 0px;
+$list-group-hover-bg        : bsik-colors("secondary", "lighten-1");
+$list-group-active-color    : $text-main-color;
+$list-group-active-bg       : lighten($list-group-hover-bg, 15%);
+$list-group-active-border-color : bsik-colors("secondary", "lighten-1");
+//$list-group-disabled-color : $gray-600;
+//$list-group-disabled-bg : $list-group-bg;
+$list-group-action-color        : $text-main-color;
+$list-group-action-hover-color  : $text-main-color;
+$list-group-action-active-color : $text-main-color;
+$list-group-action-active-bg    : lighten($list-group-hover-bg, 15%);
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Modals:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// $modal-inner-padding:               $spacer;
+
+// $modal-footer-margin-between:       .5rem;
+
+// $modal-dialog-margin:               .5rem;
+// $modal-dialog-margin-y-sm-up:       1.75rem;
+
+// $modal-title-line-height:           $line-height-base;
+
+// $modal-content-color:               null;
+// $modal-content-bg:                  $white;
+// $modal-content-border-color:        rgba($black, .2);
+// $modal-content-border-width:        $border-width;
+$modal-content-border-radius:          0.5rem;
+// $modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width);
+// $modal-content-box-shadow-xs:       $box-shadow-sm;
+// $modal-content-box-shadow-sm-up:    $box-shadow;
+
+// $modal-backdrop-bg:                 $black;
+// $modal-backdrop-opacity:            .5;
+// $modal-header-border-color:         $border-color;
+// $modal-footer-border-color:         $modal-header-border-color;
+// $modal-header-border-width:         $modal-content-border-width;
+// $modal-footer-border-width:         $modal-header-border-width;
+// $modal-header-padding-y:            $modal-inner-padding;
+// $modal-header-padding-x:            $modal-inner-padding;
+// $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x; // Keep this for backwards compatibility
+
+// $modal-sm:                          300px;
+// $modal-md:                          500px;
+// $modal-lg:                          800px;
+// $modal-xl:                          1140px;
+
+$modal-fade-transform:              translate(0, -50px);
+$modal-show-transform:              none;
+$modal-transition:                  transform .3s ease-out;
+$modal-scale-transform:             scale(1.02);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Spinners:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// $spinner-width:           2rem;
+// $spinner-height:          $spinner-width;
+// $spinner-vertical-align:  'middle';
+// $spinner-border-width:    .25em;
+// $spinner-animation-speed: .75s;
+
+// $spinner-width-sm:        1rem;
+// $spinner-height-sm:       $spinner-width-sm;
+// $spinner-border-width-sm: .2em;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Alerts:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// $alert-padding-y:               $spacer;
+// $alert-padding-x:               $spacer;
+// $alert-margin-bottom:           1rem;
+// $alert-border-radius:           $border-radius;
+// $alert-link-font-weight:        $font-weight-bold;
+$alert-border-width:            1px;
+$alert-bg-scale:                -50%;
+$alert-border-scale:            -30%;
+$alert-color-scale:             30%;
+// $alert-dismissible-padding-r:   $alert-padding-x * 3; // 3x covers width of x plus default padding on either side
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Badges:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// $badge-font-size:                   .75em;
+$badge-font-weight:                 600;
+$badge-color:                       $white;
+// $badge-padding-y:                   .35em;
+// $badge-padding-x:                   .65em;
+// $badge-border-radius:               $border-radius;

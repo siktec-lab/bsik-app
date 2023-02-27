@@ -1,0 +1,1 @@
+<span>Bye {{ name ?? 'User' }} from SIKTEC</span>

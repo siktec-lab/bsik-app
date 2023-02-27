@@ -1,0 +1,32 @@
+// Make input
+@mixin make-input($margin-bottom, $label-font-size, $label-active-font-size, $top, $prefix-font-size, $margin-left, $width, $margin-left-2) {
+    .validate {
+        margin-bottom: $margin-bottom;
+    }
+    label {
+        font-size: $label-font-size;
+        &.active {
+            font-size: $label-active-font-size;
+        }
+    }
+    .prefix {
+        top: $top;
+        font-size: $prefix-font-size;
+        ~input,
+        ~textarea {
+            width: $width;
+            margin-left: $margin-left;
+        }
+        ~label {
+            margin-left: $margin-left;
+        }
+        ~.form-text {
+            margin-left: $margin-left-2;
+        }
+    }
+}
+
+// Make svg path 
+@function make-svg-icon($path, $fill:#fff, $box:0 0 200 200, $stroke: false, $stroke-size: false) {
+    @return escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 700'><path fill='#{$sikform-input-caret-color}' stroke='#{$sikform-input-caret-stroke-color}' stroke-width='#{$sikform-input-caret-stroke-width}' d='M 285.476 377.971 L 91.132 572.314 c -9.373 9.373 -24.569 9.373 -33.941 0 l -22.667 -22.667 c -9.357 -9.357 -9.375 -24.522 -0.04 -33.901 L 188.505 361 L 34.484 206.255 c -9.335 -9.379 -9.317 -24.544 0.04 -33.901 l 22.667 -22.667 c 9.373 -9.373 24.569 -9.373 33.941 0 L 285.475 344.03 c 9.373 9.372 9.373 24.568 0.001 33.941 z'/></svg>"));
+}

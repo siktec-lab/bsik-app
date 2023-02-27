@@ -1,0 +1,94 @@
+//Variables:
+
+$summary-card-padding       : 0.675rem 0.875rem !default;
+$summary-card-border-radius : 0.275rem !default;
+$summary-card-border        : 1px solid transparent !default;
+$summary-card-bg            : rgba(255,255,255,0.02) !default;
+
+$summary-card-colors: (
+    "primary"       : bsik-colors("primary", "base"),
+    "secondary"     : bsik-colors("secondary", "base"),
+    "info"          : bsik-colors("info", "base"),
+    "warning"       : bsik-colors("warning", "base"),
+    "danger"        : bsik-colors("danger", "base"),
+    "success"       : bsik-colors("success", "base"),
+    "default"       : bsik-colors("blue-grey", "base"),
+    "yellow"        : bsik-colors("yellow", "base"),
+    "white"         : bsik-colors("white", "base")
+) !default;
+
+
+// <div class="bsik-summary-card bsik-summary-card-color-{$color}"> 
+//     <div class="bsik-summary-card-body">
+//         <div class="bsik-summary-card-title">{$title}</div>
+//         <div class="bsik-summary-card-number">{$number}</div>
+//         <div class="bsik-summary-card-trend">
+//             {$trend}
+//         </div>
+//     </div>
+//     <div class="bsik-summary-card-icon-bg">
+//         <i class="{$icon}"></i>
+//     </div>
+// </div>
+
+.bsik-summary-card {
+    width : 100%;
+    position: relative;
+    .bsik-summary-card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: $summary-card-bg;
+        border: $summary-card-border;
+        border-radius: $summary-card-border-radius;
+        padding: $summary-card-padding;
+        .bsik-summary-card-title {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .bsik-summary-card-number {
+            flex: 1;
+            font-size: 1.765rem;
+            font-weight: 500;
+        }
+        
+    }
+    .bsik-summary-card-icon-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $summary-card-padding;
+        i {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+    }
+
+    //colors for:
+    @each $color, $value in $summary-card-colors {
+        &.bsik-summary-card-color-#{$color} {
+            .bsik-summary-card-body {
+                .bsik-summary-card-title {
+                    color : $value;
+                }
+            }
+            .bsik-summary-card-icon-bg {
+                i {
+                    color: $value;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+    .card-stats .justify-content-xl-between {
+        justify-content: space-between !important;
+    }
+}
+
+
+

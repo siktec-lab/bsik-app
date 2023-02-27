@@ -1,0 +1,179 @@
+/* @import "variables.css"; */
+@import "fonts.css";
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--admin-base-font-size);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--admin-base-background);
+    color: var(--admin-white-text);
+    overflow: hidden;
+}
+
+
+pre {
+    color: var(--admin-white-text);
+}
+
+
+/******************************  STRUCTURE  *****************************/
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100vh;
+    width: 100%;
+    padding-top: var(--top-admin-bar-height);
+    padding-bottom: var(--bottom-admin-footer-height);
+}
+
+.container-side-menu {
+    display: inline-block;
+    width: var(--side-admin-menu-width);
+    height: 100%;
+    border-right: 1px solid var(--grid-border-spacer-color);
+}
+
+.container-module {
+    flex: 1;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: var(--module-content-padding);
+}
+
+.container-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: var(--bottom-admin-footer-height);
+    width: 100vw;
+    border-top: 1px solid var(--grid-border-spacer-color);
+}
+
+
+/******************************  SIDE MENU  *****************************/
+
+ul.admin-menu,
+ul.entry-sub-menu {
+    padding: 10px 0px;
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+    text-decoration: none;
+}
+
+ul.admin-menu a,
+ul.admin-menu a:visited,
+ul.admin-menu a:active,
+ul.admin-menu a:hover {
+    color: inherit;
+    text-decoration: inherit;
+    display: block;
+}
+
+ul.admin-menu>li.menu-entry.is-loaded>a>span,
+ul.admin-menu>li.menu-entry.is-loaded .is-loaded>a>span {
+    text-decoration: underline;
+}
+
+ul.entry-sub-menu {
+    padding-left: 15px;
+}
+
+ul.admin-menu>li.menu-entry {
+    position: relative;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+ul.admin-menu ul.entry-sub-menu>li.menu-entry {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+ul.admin-menu li.menu-entry>a>span i {
+    margin-right: 10px;
+}
+
+ul.admin-menu>li.menu-entry.has-submenu::after {
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    right: 15px;
+    top: 11px;
+    content: '\f107';
+    transition: transform ease .2s;
+}
+
+ul.admin-menu>li.menu-entry.has-submenu.open-menu::after {
+    transform: rotate(180deg);
+    color: var(--admin-side-menu-text-hover-color);
+}
+
+ul.admin-menu>li.menu-entry.has-submenu>.entry-sub-menu {
+    display: none;
+    padding-bottom: 0px;
+}
+
+ul.admin-menu>li.menu-entry.has-submenu.open-menu {
+    padding-bottom: 0px;
+}
+
+ul.admin-menu>li.menu-entry.has-submenu.open-menu>.entry-sub-menu {
+    display: block;
+}
+
+ul.admin-menu li.menu-entry:hover:not(.has-submenu.open-menu) {
+    background-color: var(--admin-side-menu-entry-hover);
+    color: var(--admin-side-menu-text-hover-color);
+}
+
+
+/******************************  MODULE CONTENT  *****************************/
+
+.container-module {
+    color: var(--admin-module-content-text-color);
+}
+
+.container-module .table {
+    color: var(--admin-module-content-text-color);
+}
+
+
+
+
+/******************************  FOOTER  *****************************/
+
+.container-footer {
+    padding: 0px 0px 0px 10px;
+    text-align: left;
+    line-height: var(--bottom-admin-footer-height);
+    color: var(--admin-grey-text);
+    overflow: hidden;
+}
+
+
+/******************************  HELPERS  *****************************/
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}

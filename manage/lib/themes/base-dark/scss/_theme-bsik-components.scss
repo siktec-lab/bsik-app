@@ -1,0 +1,775 @@
+
+@use "sass:map";
+
+
+
+
+
+
+
+
+/***************************************************************************/
+/* Components::alert
+/***************************************************************************/ 
+// $modal-fade-transform:              translate(0, -50px) !default;
+// $modal-show-transform:              none !default;
+// $modal-transition:                  transform .3s ease-out !default;
+// $modal-scale-transform:             scale(1.02) !default;
+.alert {
+    &.add-icon {
+        position: relative;
+        padding-left: 4rem;
+        > span.bg-icon {
+            display: block;
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0.4;
+            left: 0;
+            top: 0;
+            i {
+                width:100%;
+                font-size: 2rem;
+                padding: 10% 10%;
+            }
+        }
+    }
+}
+
+/***************************************************************************/
+/* Components::button_card
+/***************************************************************************/ 
+$comp-card-btn: (
+    "radius"        : 4px,
+    "label-color"   : grey,
+    "label-size"    : 1.1em,
+    "label-weight"  : 400,
+) !default;
+$comp-card-btn-primary: (
+
+  "background": $dark,
+  "border": 1px solid lighten($dark, 5%),
+
+) !default;
+$comp-card-btn-secondary: (
+
+  "background": $dark,
+  "border": 1px solid lighten($dark, 5%),
+
+) !default;
+.comp-card-btn {
+    background-color: black;
+    border: 1px solid grey;
+    border-radius: map-get($comp-card-btn,  "radius");
+    text-align: center;
+    height: 100%;
+    &.comp-card-btn-color-primary {
+        background-color: map-get($comp-card-btn-primary,  "background"); 
+        border:           map-get($comp-card-btn-primary,   "border");
+    }
+    &.comp-card-btn-color-secondary {
+        background-color: map-get($comp-card-btn-secondary,  "background");
+        border:           map-get($comp-card-btn-secondary,  "border");
+    }
+    &.comp-card-btn-size-sm {
+        padding: 15px;
+    }
+    &.comp-card-btn-size-md {
+        padding: 20px;
+    }
+    &.comp-card-btn-size-lg {
+        padding: 30px;
+    }
+    .comp-card-btn-label {
+        font-size:      map-get($comp-card-btn,  "label-size");
+        font-weight:    map-get($comp-card-btn,  "label-weight");
+        color:          map-get($comp-card-btn,  "label-color");
+        margin-bottom: 10px;
+    }
+    .comp-card-btn-action {
+        .btn {
+            min-width: 70%;
+        }
+        i {
+            margin-right: 6px;
+        }
+    } 
+}
+/***************************************************************************/
+/* Components::action_bar
+/***************************************************************************/ 
+$comp-action-bar: (
+    "wrap-bg"           : transparent,
+    "item-bg"           : transparent,
+    "item-bg-hover"     : bsik-colors("secondary", "darken-1"),
+    "item-bg-active"    : darken(bsik-colors("secondary", "base"), 8%),
+    "item-color"        : $text-main-color-f1,
+    "item-color-hover"  : $text-main-color-s2,
+    "item-width"        : 140px
+) !default;
+
+ul.bsik-action-bar {
+    list-style: none;
+    display:flex;
+    padding: 1rem;
+    margin: 0;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: map-get($comp-action-bar,  "wrap-bg");
+
+    >li.action-item {
+        text-align: center;
+        padding: 1rem;
+        cursor: pointer;
+        outline: 0;
+        transition: all .2s ease-out;
+        background-color: map-get($comp-action-bar,  "item-bg");
+        border: 1px solid map-get($comp-action-bar,  "item-bg");
+        width: map-get($comp-action-bar,  "item-width");
+        color: map-get($comp-action-bar,  "item-color") !important;
+        >i {
+            text-align: center;
+            display: block;
+            font-size: 1.65em;
+        }
+        >span {
+            text-transform: capitalize;
+            text-align: center;
+            padding-top: 0.5rem;
+            display: block;
+        }
+        &:hover {
+            transform: translate3d(0,-4px,0);
+            background-color: map-get($comp-action-bar,  "item-bg-hover");
+            border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
+            color: map-get($comp-action-bar,  "item-color-hover") !important;
+            i {
+                
+            }
+        }
+        &:active,
+        &.active {
+            border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
+            background-color: map-get($comp-action-bar,  "item-bg-active");
+        }
+    }
+}
+
+/***************************************************************************/
+/* Components::modules_list
+/***************************************************************************/
+$comp-modules-list: (
+    "row-background"        : rgba(255,255,255, 0.02),
+    "row-background-icon"   : rgba(255,255,255, 1),
+    "row-border"            : 3px solid rgba(255,255,255, 0.02),
+    "sections-border"       : 1px solid rgba(255,255,255, 0.05),
+    "module-name-color"     : #ebebeb,
+    "white-text"            : $text-main-color,
+    "light-text"            : $text-main-color-f2
+) !default;
+.comp-modules-list {
+    .module-list-filter {
+
+    }
+    .module-list {
+        padding: 15px;
+        border-bottom: map-get($comp-modules-list, "row-border");
+        > .row {
+            padding: 10px;
+            overflow: hidden;
+            background-color: map-get($comp-modules-list, "row-background");
+        }
+        > .row > .col{
+            position: relative;
+            border-right: map-get($comp-modules-list, "sections-border");
+        }
+        > .row > .col:last-child {
+            border-right: 0px;
+        }
+        .module-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            display: block;
+            border-bottom: map-get($comp-modules-list, "sections-border");
+            padding-bottom: 8px;
+            margin-right: 5px;
+            color: map-get($comp-modules-list, "module-name-color");
+            i {
+                font-size: 1.2rem;
+                transform: translate(25px, 40px) rotate(15deg) scale(6.5);
+                opacity: 0.03;
+                position: absolute;
+                z-index: -1;
+                color: map-get($comp-modules-list, "row-background-icon");
+            }
+        }
+        .tag-module-status {
+            display: block;
+            position: absolute;
+            right: 15px;
+            bottom: 0px;
+            min-width: 100px;
+            text-align: center;
+            background-color: #212121;
+            font-size: 0.85em;
+            font-weight: 500;
+            line-height: initial;
+            padding: 3px;
+            &.module-status-active {
+                background-color: var(--bs-green);
+            }
+            &.module-status-disable {
+                background-color: var(--bs-red);
+            }
+            &.module-status-has-update {
+                background-color: var(--bs-purple);
+            }
+            &.module-status-core {
+                background-color: #0089d3;
+            }
+        }
+        .module-info {
+            list-style: none;
+            padding: 0px 10px;
+            margin: 0;
+            font-size: 0.9rem;
+            > li {
+                margin: 3px 0px;
+                color: map-get($comp-modules-list, "light-text");
+            }
+            > li > strong {
+                margin-right: 5px;
+                color: map-get($comp-modules-list, "white-text");
+                font-weight: 500;
+                min-width: 60px;
+                display: inline-block;
+                position: relative;
+                &::after {
+                    position: absolute;
+                    right: 0px;
+                    content: '-';
+                }
+            }
+        }
+        .module-header {
+            font-size: 1em;
+            border: 0 !important;
+            margin: 0 !important;
+            color: map-get($comp-modules-list, "white-text");
+        }
+        .module-description {
+            margin: 0;
+            font-size: 0.9em;
+            color: map-get($comp-modules-list, "light-text");
+        }
+        .module-installed-text {
+            font-weight: 600;
+            display: block;
+            color: #ffe1b5;
+            font-weight: 500;
+        }
+        .module-installed-date {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .module-actions > button { 
+
+            // &.btn-bsik-action {
+            //     color: map-get($comp-modules-list, "white-text");
+            //     background-color: rgba(255,255,255, 0.04);
+            //     border-color: darken(rgb(255,255,255), 85%);
+            //     white-space: nowrap;
+            //     &:disabled {
+            //         opacity: 0.5;
+            //     }
+            //     &:hover {
+            //         background-color: rgba(255,255,255, 0.08);
+            //         &.icon-info i {
+            //             color: $info
+            //         }
+            //         &.icon-warning i {
+            //             color: $warning;
+            //         }
+            //         &.icon-danger i {
+            //             color: $danger;
+            //         }
+            //         &.icon-success i {
+            //             color: $success;
+            //         }
+            //     }
+                
+            // }
+            display: block; 
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .module-meta-header {
+            display:block;
+            font-size: 0.8em;
+            color: map-get($comp-modules-list, "white-text");
+            font-weight: 500;
+        }
+        .module-meta-content {
+            display:block;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: map-get($comp-modules-list, "light-text");
+        }
+    }
+}
+
+/***************************************************************************/
+/* Components::endopoints_list
+/***************************************************************************/
+$comp-endpoints-list: (
+    "row-background"            : rgba(255,255,255, 0.03),
+    "row-more-background"       : rgba(255,255,255, 0.02),
+    "row-background-icon"       : rgba(255,255,255, 1),
+    "sections-border"           : 1px solid rgba(255,255,255, 0.05),
+    "module-name-color"         : #ebebeb,
+    "white-text"                : $text-main-color,
+    "description-text-color"    : $text-main-color-f2,
+    "endpoint-text-color"       : bsik-colors("purple", "lighten-3"),
+    "privileges-tags-bg"        : #cdae00,
+    "privileges-tags-color"     : #242424
+) !default;
+.comp-endpoints-list {
+    position: relative;
+
+
+    .endpoint-row {
+        margin-top: 1rem;
+        .endpoint-header {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            border: map-get($comp-endpoints-list, "sections-border");
+            background-color: map-get($comp-endpoints-list, "row-background");
+            display: flex;
+            align-items: baseline;
+            > li {
+                display: inline-block;
+                padding: 0.85rem 0.75rem;
+                line-height: 1rem;
+                &.endpoint-name {
+                    flex-grow: 0;
+                    font-size: 0.9rem;
+                    strong {
+                        color: map-get($comp-endpoints-list, "module-name-color");
+                    }
+                    i {
+                        margin: 0 0.75rem 0 0.75rem;
+                    }
+                    span {
+                        font-size: 0.9rem;
+                        color: map-get($comp-endpoints-list, "endpoint-text-color");
+                    }
+                }
+                &.endpoint-description {
+                    color: map-get($comp-endpoints-list, "description-text-color");
+                    flex-grow: 1;
+                    font-size: 0.9rem;
+                    border-left: map-get($comp-endpoints-list, "sections-border");
+                    border-right: map-get($comp-endpoints-list, "sections-border");
+                }
+                &.endpoint-global {
+                    flex-grow: 0;
+                    font-size: 0.9rem;
+                }
+                &.endpoint-external {
+                    flex-grow: 0;
+                    font-size: 0.9rem;
+                }
+                &.endpoint-front {
+                    flex-grow: 0;
+                    font-size: 0.9rem;
+                }
+                &.endpoint-allowed {
+                    flex-grow: 0;
+                    font-size: 0.9rem;
+                    border-right: map-get($comp-endpoints-list, "sections-border");
+                }
+                &.endpoint-expand {
+                    flex-grow: 0;
+                    font-size: 1rem;
+                    i {
+                        cursor: pointer;
+                        padding: 0.35rem 0.75rem;
+                        color: map-get($comp-endpoints-list, "white-text");
+                        transition: color ease .2s,
+                                    transform ease .2s;
+                        &:hover {
+                            color: $primary-color;
+                        }
+                        &.expanded {
+                            color: $primary-color;
+                            transform: rotateX(180deg);
+                        }
+                    }
+                }
+            }
+        }
+        .endpoint-more-info {
+            background-color: map-get($comp-endpoints-list, "row-more-background");
+            box-shadow: inset 0px 15px 10px -15px black;
+            padding: 1rem;
+            display: none;
+            h4 {
+                font-size: 0.9rem;
+                width: 100%;
+                margin-bottom: 0.65rem;
+                padding-left: 0.5rem;
+                padding-bottom: 0.65rem;
+                border-bottom: map-get($comp-endpoints-list, "sections-border");
+                text-align: left;
+                i {
+                    margin-right: 5px;
+                }
+            }
+            .endpoint-priv-tags {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                padding-left: 2rem;
+                li.priv-tags-group {
+                    display:inline-block;
+                    font-size: 0.8rem;
+                    padding: 0.15rem 0.65rem 0.05rem 0.65rem;
+                    background-color: map-get($comp-endpoints-list, "privileges-tags-bg");
+                    font-weight: 600;
+                    border-radius: 0.25rem;
+                    color: map-get($comp-endpoints-list, "privileges-tags-color");
+                    i:not(:first-child) {
+                        margin: 0 0.5rem;
+                    }
+                }
+            }
+            .no-params,
+            .no-policy {
+                display: block;
+                color: map-get($comp-endpoints-list, "description-text-color");
+                font-size: 0.9rem;
+                padding-left: 2rem;
+            }
+            .no-params {
+                margin-bottom: 1.5rem;
+            }
+            table.parameters-table {
+                font-size: 0.9rem;
+                margin-left: 2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+                td {
+                    border: map-get($comp-endpoints-list, "sections-border");
+                    padding: 0.35rem 0.8rem;
+                    &:not(.header-style) {
+                        color: map-get($comp-endpoints-list, "description-text-color");
+                    }
+                    &.header-style {
+                        background-color: map-get($comp-endpoints-list, "row-background");
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .loading-spinner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0,0,0, 0.3);
+        z-index: 5;
+    }
+
+    .alert.failed-label {
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        font-size: 0.9rem;
+        margin: 0;
+        i {
+            margin-right: 1ch;
+        }
+    }
+}
+
+/***************************************************************************/
+/* Components::settings_list
+/***************************************************************************/
+$comp-settings-list: (
+    "row-background"            : rgba(255,255,255, 0.03),
+    "row-expanded-background"   : rgba(255,255,255, 0.02),
+    "row-background-icon"       : rgba(255,255,255, 1),
+    "sections-border"           : 1px solid rgba(255,255,255, 0.05),
+    "group-name-color"          : #ebebeb,
+    "white-text"                : $text-main-color,
+    "description-text-color"    : $text-main-color-f2,
+    "group-icon-color"       : bsik-colors("purple", "lighten-3"),
+    "privileges-tags-bg"        : #cdae00,
+    "privileges-tags-color"     : #242424
+) !default;
+.comp-settings-list {
+    position: relative;
+    .settings-row {
+        margin-top: 1rem;
+        .settings-header {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            border: map-get($comp-settings-list, "sections-border");
+            background-color: map-get($comp-settings-list, "row-background");
+            display: flex;
+            align-items: baseline;
+            > li {
+                display: inline-block;
+                padding: 0.85rem 0.75rem;
+                line-height: 1rem;
+                &.group-name {
+                    flex-grow: 0;
+                    font-size: 1rem;
+                    strong {
+                        color: map-get($comp-settings-list, "group-name-color");
+                        font-weight: bold;
+                    }
+                    span.material-icons {
+                        margin: 0 0.75rem 0 0.75rem;
+                        font-size: 1.35rem;
+                        color: map-get($comp-settings-list, "group-icon-color");
+                    }
+                }
+                &.group-description {
+                    color: map-get($comp-settings-list, "description-text-color");
+                    flex-grow: 1;
+                    font-size: 0.9rem;
+                    border-left: map-get($comp-settings-list, "sections-border");
+                    border-right: map-get($comp-settings-list, "sections-border");
+                }
+                &.group-expand {
+                    flex-grow: 0;
+                    font-size: 1rem;
+                    i {
+                        cursor: pointer;
+                        padding: 0.35rem 0.75rem;
+                        color: map-get($comp-settings-list, "white-text");
+                        transition: color ease .2s,
+                                    transform ease .2s;
+                        &:hover {
+                            color: $primary-color;
+                        }
+                        &.expanded { 
+                            color: $primary-color;
+                            transform: rotateX(180deg);
+                        }
+                    }
+                }
+            }
+        }
+        .group-settings {
+            background-color: map-get($comp-settings-list, "row-expanded-background");
+            box-shadow: inset 0px 15px 10px -15px black;
+            padding: 1rem;
+            display: none;
+            h4 {
+                width: 100%;
+                margin-bottom: 0.65rem;
+                padding-left: 0.5rem;
+                padding-bottom: 0.65rem;
+                border-bottom: map-get($comp-endpoints-list, "sections-border");
+                text-align: left;
+                .material-icons {
+                    margin-right: 5px;
+                }
+                .setting-description {
+                    margin-left: 10px;
+                    color: map-get($comp-settings-list, "description-text-color");
+                }
+            }
+            .settings-priv-tags {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                padding-left: 2rem;
+                li.priv-tags-group {
+                    display:inline-block;
+                    font-size: 0.8rem;
+                    padding: 0.15rem 0.65rem 0.05rem 0.65rem;
+                    background-color: map-get($comp-settings-list, "privileges-tags-bg");
+                    font-weight: 600;
+                    border-radius: 0.25rem;
+                    color: map-get($comp-settings-list, "privileges-tags-color");
+                    i:not(:first-child) {
+                        margin: 0 0.5rem;
+                    }
+                }
+            }
+            .no-params,
+            .no-policy {
+                display: block;
+                color: map-get($comp-settings-list, "description-text-color");
+                font-size: 0.9rem;
+                padding-left: 2rem;
+            }
+            .no-params {
+                margin-bottom: 1.5rem;
+            }
+            table.parameters-table {
+                font-size: 0.9rem;
+                margin-left: 2rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+                td {
+                    border: map-get($comp-settings-list, "sections-border");
+                    padding: 0.35rem 0.8rem;
+                    &:not(.header-style) {
+                        color: map-get($comp-settings-list, "description-text-color");
+                    }
+                    &.header-style {
+                        background-color: map-get($comp-settings-list, "row-background");
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .loading-spinner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0,0,0, 0.3);
+        z-index: 5;
+    }
+
+    .alert.failed-label {
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        font-size: 0.9rem;
+        margin: 0;
+        i {
+            margin-right: 1ch;
+        }
+    }
+}
+
+/***************************************************************************/
+/* Components::settings_form
+/***************************************************************************/ 
+
+.form-settings label {
+    
+    border: 1px solid #ced4da;
+    margin: 0;
+    padding: 5px 10px 5px 5px;
+    width:30%;
+    position: relative;
+    
+}
+.form-settings label > strong {
+    color:#1818d1;
+    font-weight: 500;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    display: block;
+    border-bottom: 1px solid #e7e7e7;
+}
+.form-settings label > strong > i {
+    color:#4f4f4f;
+    font-size: 1em;
+}
+.form-settings label > p {
+    color:#8b8b8b;
+    font-size: 0.8em;
+    font-style: italic;
+    margin:0;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.form-settings label.is-inherited {
+    opacity: 0.7;
+}
+.form-settings .form-control {
+    color: #1818d1;
+}
+
+.form-settings .form-select {
+    color: #4f4f4f;
+}
+
+.form-settings .form-select.revised {
+    color: #1818d1;
+}
+
+.form-settings .form-select option {
+    color: #4f4f4f;
+    padding: 8px 15px;
+}
+
+.form-settings .form-select option[selected="selected"] {
+    background-color: #ebebeb;
+    font-weight: 600;
+}
+
+.form-settings .input-group-text {
+    width: 70px;
+    padding: 0.375rem 0.4rem;
+}
+.form-settings .input-group-text span {
+    color: #4f4f4f;
+    font-size: 0.7em;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+.form-settings .form-control::placeholder {
+    color: #b9b9b9;
+    opacity: 1;
+}
+.form-settings .form-control::-webkit-input-placeholder {
+    color: #b9b9b9;
+    opacity: 1;
+}
+.form-settings .form-control::-moz-placeholder {
+    color: #b9b9b9;
+    opacity: 1;
+}
+.form-settings .form-control:-ms-input-placeholder { 
+    color: #b9b9b9;
+    opacity: 1;
+}
+
+.form-settings label > span.set-override,
+.form-settings label > span.set-inherited {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    padding: 1px 3px;
+    background-color: rgb(255, 230, 230);
+    color: rgb(255, 97, 97);
+    position: absolute;
+    top: 0;
+    right: 0;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+.form-settings label > span.set-inherited {
+    background-color: rgb(230, 230, 230);
+    color: rgb(94, 94, 94);
+}
+
+

@@ -1,0 +1,259 @@
+@import "theme-pallette";
+
+// Theme colors
+
+// $primary-color-lighten-5 : #fde9cb !default;
+// $primary-color-lighten-4 : #fddfb3 !default;
+// $primary-color-lighten-3 : #ffd595 !default;
+// $primary-color-lighten-2 : #ffc876 !default;
+// $primary-color-lighten-1 : #fcba57 !default;
+// $primary-color           : #fbb040 !default;
+// $primary-color-darken-1  : rgb(241, 159, 35) !default;
+// $primary-color-darken-2  : rgb(230, 147, 24) !default;
+// $primary-color-darken-3  : rgb(211, 136, 23) !default;
+// $primary-color-darken-4  : rgb(201, 120, 0)  !default;
+// $primary-color-darken-5  : rgb(173, 104, 0)  !default;
+// $secondary-color-lighten-5 : #cdcdcd !default;
+// $secondary-color-lighten-4 : #adadad !default;
+// $secondary-color-lighten-3 : #8d8d8d !default;
+// $secondary-color-lighten-2 : #6d6d6d !default;
+// $secondary-color-lighten-1 : #4d4d4d !default;
+// $secondary-color           : #2c2c2c !default;
+// $secondary-color-darken-1  : #202020 !default;
+// $secondary-color-darken-2  : #1c1c1c !default;
+// $secondary-color-darken-3  : #131313 !default;
+// $secondary-color-darken-4  : #000000 !default;
+// $secondary-color-darken-5  : #000000 !default;
+
+$primary-color           : #d79e25 !default;
+$primary-color-lighten-1 : lighten($primary-color, 5%) !default;
+$primary-color-lighten-2 : lighten($primary-color, 10%)  !default;
+$primary-color-lighten-3 : lighten($primary-color, 15%) !default;
+$primary-color-lighten-4 : lighten($primary-color, 20%) !default;
+$primary-color-lighten-5 : lighten($primary-color, 25%) !default;
+$primary-color-darken-1  : darken($primary-color, 5%) !default;
+$primary-color-darken-2  : darken($primary-color, 10%) !default;
+$primary-color-darken-3  : darken($primary-color, 15%) !default;
+$primary-color-darken-4  : darken($primary-color, 20%) !default;
+$primary-color-darken-5  : darken($primary-color, 25%) !default;
+
+$secondary-color         : #1f222a !default;
+$secondary-color-lighten-1 : lighten($secondary-color, 5%) !default;
+$secondary-color-lighten-2 : lighten($secondary-color, 10%)  !default;
+$secondary-color-lighten-3 : lighten($secondary-color, 15%) !default;
+$secondary-color-lighten-4 : lighten($secondary-color, 20%) !default;
+$secondary-color-lighten-5 : lighten($secondary-color, 25%) !default;
+$secondary-color-darken-1  : darken($secondary-color, 5%) !default;
+$secondary-color-darken-2  : darken($secondary-color, 10%) !default;
+$secondary-color-darken-3  : darken($secondary-color, 15%) !default;
+$secondary-color-darken-4  : darken($secondary-color, 20%) !default;
+$secondary-color-darken-5  : darken($secondary-color, 25%) !default;
+
+$white                  : rgb(245, 245, 245);
+$black                  : rgb(12, 12, 12);
+$info-color-light       : #4dc9f7 !default;
+$info-color             : #33b5e5 !default;
+$info-color-dark        : #09c    !default;
+$success-color-light    : #26d66c !default;
+$success-color          : #23c965 !default;
+$success-color-dark     : #20a756 !default;
+$warning-color-light    : #f3cc7f    !default;
+$warning-color          : #f5c35f    !default;
+$warning-color-dark     : #e7af3e    !default;
+$danger-color-light     : #ff818b !default;
+$danger-color           : #ff5f6d !default;
+$danger-color-dark      : #fd4352 !default;
+$elegant-color-light    : #555555 !default;
+$elegant-color          : #2e2e2e !default;
+$elegant-color-dark     : #212121 !default;
+$stylish-color-light    : #6b7385 !default;
+$stylish-color          : #4b515d !default;
+$stylish-color-dark     : #3e4551 !default;
+$unique-color-light     : #5390c2 !default;
+$unique-color           : #3f729b !default;
+$unique-color-dark      : #1c2331 !default;
+$special-color-light    : #56707c !default;
+$special-color          : #37474f !default;
+$special-color-dark     : #263238 !default;
+$error-color            : $red-base !default;
+
+// Social colors
+$fb-color           : #3b5998 !default;
+$tw-color           : #55acee !default;
+$gplus-color        : #dd4b39 !default;
+$yt-color           : #ed302f !default;
+$li-color           : #0082ca !default;
+$pin-color          : #c61118 !default;
+$ins-color          : #2e5e86 !default;
+$git-color          : #333    !default;
+$comm-color         : #30cfc0 !default;
+$vk-color           : #4c75a3 !default;
+$drib-color         : #ec4a89 !default;
+$so-color           : #ffac44 !default;
+$slack-color        : #56b68b !default;
+$email-color        : #4b515d !default;
+$redd-color         : #ff4500 !default;
+$twitch-color       : #6441a4 !default;
+$discord-color      : #7289da !default;
+$whatsapp-color     : #25d366 !default;
+$social-colors: () !default;
+$social-colors: map-merge( ( "fb" : $fb-color, "tw" : $tw-color, "gplus" : $gplus-color, "yt" : $yt-color, "li" : $li-color, "pin" : $pin-color, "ins" : $ins-color, "git" : $git-color, "comm" : $comm-color, "vk" : $vk-color, "dribbble": $drib-color, "so" : $so-color, "slack" : $slack-color, "email" : $email-color, "reddit" : $redd-color, "twitch" : $twitch-color, "discord" : $discord-color, "whatsapp": $whatsapp-color), $social-colors);
+
+// Stylish rgba colors
+$stylish-rgba: ( 
+    "rgba-stylish-slight"   : rgba(62, 69, 81, .1), 
+    "rgba-stylish-light"    : rgba(62, 69, 81, .3), 
+    "rgba-stylish-strong"   : rgba(62, 69, 81, .7)
+);
+
+//Create the bsik pallette:
+$bsik-colors: () !default;
+$bsik-colors: map-merge( 
+    ( 
+        //Pallet colors:
+        "primary"       : ( "lighten-5" : $primary-color-lighten-5,     "lighten-4" : $primary-color-lighten-4,     "lighten-3" : $primary-color-lighten-3, "lighten-2" : $primary-color-lighten-2, "lighten-1" : $primary-color-lighten-1, "base"      : $primary-color, "darken-1"  : $primary-color-darken-1, "darken-2"  : $primary-color-darken-2, "darken-3"  : $primary-color-darken-3, "darken-4"  : $primary-color-darken-4, "darken-5"  : $primary-color-darken-5), 
+        "secondary"     : ( "lighten-5" : $secondary-color-lighten-5,   "lighten-4" : $secondary-color-lighten-4, "lighten-3" : $secondary-color-lighten-3, "lighten-2" : $secondary-color-lighten-2, "lighten-1" : $secondary-color-lighten-1, "base"      : $secondary-color, "darken-1"  : $secondary-color-darken-1, "darken-2"  : $secondary-color-darken-2, "darken-3"  : $secondary-color-darken-3, "darken-4"  : $secondary-color-darken-4, "darken-5"  : $secondary-color-darken-5), 
+        "info"          : ( "base" : $info-color,       "lighten-1" : $info-color-light, "darken-1" : $info-color-dark),
+        "success"       : ( "base" : $success-color,    "lighten-1" : $success-color-light, "darken-1" : $success-color-dark),
+        "warning"       : ( "base" : $warning-color,    "lighten-1" : $warning-color-light, "darken-1" : $warning-color-dark),
+        "danger"        : ( "base" : $danger-color,     "lighten-1" : $danger-color-light, "darken-1" : $danger-color-dark),
+        "elegant"       : ( "base" : $elegant-color,    "lighten-1" : $elegant-color-light, "darken-1" : $elegant-color-dark),
+        "stylish"       : ( "base" : $stylish-color,    "lighten-1" : $stylish-color-light, "darken-1" : $stylish-color-dark),
+        "unique"        : ( "base" : $unique-color,     "lighten-1" : $unique-color-light, "darken-1" : $unique-color-dark),
+        "special"       : ( "base" : $special-color,    "lighten-1" : $special-color-light, "darken-1" : $special-color-dark),
+        "error"         : ( "base" : $error-color ),
+        
+        //Social colors:
+        "social"        : $social-colors,
+        
+        //General colors:
+        "red"           : ( "lighten-5" : $red-lighten-5, "lighten-4" : $red-lighten-4, "lighten-3" : $red-lighten-3, "lighten-2" : $red-lighten-2, "lighten-1" : $red-lighten-1, "base" : $red-base, "darken-1" : $red-darken-1, "darken-2" : $red-darken-2, "darken-3" : $red-darken-3, "darken-4" : $red-darken-4, "accent-1" : $red-accent-1, "accent-2" : $red-accent-2, "accent-3" : $red-accent-3, "accent-4" : $red-accent-4), 
+        "pink"          : ( "lighten-5" : $pink-lighten-5, "lighten-4" : $pink-lighten-4, "lighten-3" : $pink-lighten-3, "lighten-2" : $pink-lighten-2, "lighten-1" : $pink-lighten-1, "base" : $pink-base, "darken-1" : $pink-darken-1, "darken-2" : $pink-darken-2, "darken-3" : $pink-darken-3, "darken-4" : $pink-darken-4, "accent-1" : $pink-accent-1, "accent-2" : $pink-accent-2, "accent-3" : $pink-accent-3, "accent-4" : $pink-accent-4), 
+        "purple"        : ( "lighten-5" : $purple-lighten-5, "lighten-4" : $purple-lighten-4, "lighten-3" : $purple-lighten-3, "lighten-2" : $purple-lighten-2, "lighten-1" : $purple-lighten-1, "base" : $purple-base, "darken-1" : $purple-darken-1, "darken-2" : $purple-darken-2, "darken-3" : $purple-darken-3, "darken-4" : $purple-darken-4, "accent-1" : $purple-accent-1, "accent-2" : $purple-accent-2, "accent-3" : $purple-accent-3, "accent-4" : $purple-accent-4), 
+        "deep-purple"   : ( "lighten-5" : $deep-purple-lighten-5, "lighten-4" : $deep-purple-lighten-4, "lighten-3" : $deep-purple-lighten-3, "lighten-2" : $deep-purple-lighten-2, "lighten-1" : $deep-purple-lighten-1, "base" : $deep-purple-base, "darken-1" : $deep-purple-darken-1, "darken-2" : $deep-purple-darken-2, "darken-3" : $deep-purple-darken-3, "darken-4" : $deep-purple-darken-4, "accent-1" : $deep-purple-accent-1, "accent-2" : $deep-purple-accent-2, "accent-3" : $deep-purple-accent-3, "accent-4" : $deep-purple-accent-4), 
+        "indigo"        : ( "lighten-5" : $indigo-lighten-5, "lighten-4" : $indigo-lighten-4, "lighten-3" : $indigo-lighten-3, "lighten-2" : $indigo-lighten-2, "lighten-1" : $indigo-lighten-1, "base" : $indigo-base, "darken-1" : $indigo-darken-1, "darken-2" : $indigo-darken-2, "darken-3" : $indigo-darken-3, "darken-4" : $indigo-darken-4, "accent-1" : $indigo-accent-1, "accent-2" : $indigo-accent-2, "accent-3" : $indigo-accent-3, "accent-4" : $indigo-accent-4), 
+        "blue"          : ( "lighten-5" : $blue-lighten-5, "lighten-4" : $blue-lighten-4, "lighten-3" : $blue-lighten-3, "lighten-2" : $blue-lighten-2, "lighten-1" : $blue-lighten-1, "base" : $blue-base, "darken-1" : $blue-darken-1, "darken-2" : $blue-darken-2, "darken-3" : $blue-darken-3, "darken-4" : $blue-darken-4, "accent-1" : $blue-accent-1, "accent-2" : $blue-accent-2, "accent-3" : $blue-accent-3, "accent-4" : $blue-accent-4), 
+        "light-blue"    : ( "lighten-5" : $light-blue-lighten-5, "lighten-4" : $light-blue-lighten-4, "lighten-3" : $light-blue-lighten-3, "lighten-2" : $light-blue-lighten-2, "lighten-1" : $light-blue-lighten-1, "base" : $light-blue-base, "darken-1" : $light-blue-darken-1, "darken-2" : $light-blue-darken-2, "darken-3" : $light-blue-darken-3, "darken-4" : $light-blue-darken-4, "accent-1" : $light-blue-accent-1, "accent-2" : $light-blue-accent-2, "accent-3" : $light-blue-accent-3, "accent-4" : $light-blue-accent-4), 
+        "cyan"          : ( "lighten-5" : $cyan-lighten-5, "lighten-4" : $cyan-lighten-4, "lighten-3" : $cyan-lighten-3, "lighten-2" : $cyan-lighten-2, "lighten-1" : $cyan-lighten-1, "base" : $cyan-base, "darken-1" : $cyan-darken-1, "darken-2" : $cyan-darken-2, "darken-3" : $cyan-darken-3, "darken-4" : $cyan-darken-4, "accent-1" : $cyan-accent-1, "accent-2" : $cyan-accent-2, "accent-3" : $cyan-accent-3, "accent-4" : $cyan-accent-4), 
+        "teal"          : ( "lighten-5" : $teal-lighten-5, "lighten-4" : $teal-lighten-4, "lighten-3" : $teal-lighten-3, "lighten-2" : $teal-lighten-2, "lighten-1" : $teal-lighten-1, "base" : $teal-base, "darken-1" : $teal-darken-1, "darken-2" : $teal-darken-2, "darken-3" : $teal-darken-3, "darken-4" : $teal-darken-4, "accent-1" : $teal-accent-1, "accent-2" : $teal-accent-2, "accent-3" : $teal-accent-3, "accent-4" : $teal-accent-4), 
+        "green"         : ( "lighten-5" : $green-lighten-5, "lighten-4" : $green-lighten-4, "lighten-3" : $green-lighten-3, "lighten-2" : $green-lighten-2, "lighten-1" : $green-lighten-1, "base" : $green-base, "darken-1" : $green-darken-1, "darken-2" : $green-darken-2, "darken-3" : $green-darken-3, "darken-4" : $green-darken-4, "accent-1" : $green-accent-1, "accent-2" : $green-accent-2, "accent-3" : $green-accent-3, "accent-4" : $green-accent-4), 
+        "light-green"   : ( "lighten-5" : $light-green-lighten-5, "lighten-4" : $light-green-lighten-4, "lighten-3" : $light-green-lighten-3, "lighten-2" : $light-green-lighten-2, "lighten-1" : $light-green-lighten-1, "base" : $light-green-base, "darken-1" : $light-green-darken-1, "darken-2" : $light-green-darken-2, "darken-3" : $light-green-darken-3, "darken-4" : $light-green-darken-4, "accent-1" : $light-green-accent-1, "accent-2" : $light-green-accent-2, "accent-3" : $light-green-accent-3, "accent-4" : $light-green-accent-4), 
+        "lime"          : ( "lighten-5" : $lime-lighten-5, "lighten-4" : $lime-lighten-4, "lighten-3" : $lime-lighten-3, "lighten-2" : $lime-lighten-2, "lighten-1" : $lime-lighten-1, "base" : $lime-base, "darken-1" : $lime-darken-1, "darken-2" : $lime-darken-2, "darken-3" : $lime-darken-3, "darken-4" : $lime-darken-4, "accent-1" : $lime-accent-1, "accent-2" : $lime-accent-2, "accent-3" : $lime-accent-3, "accent-4" : $lime-accent-4), 
+        "yellow"        : ( "lighten-5" : $yellow-lighten-5, "lighten-4" : $yellow-lighten-4, "lighten-3" : $yellow-lighten-3, "lighten-2" : $yellow-lighten-2, "lighten-1" : $yellow-lighten-1, "base" : $yellow-base, "darken-1" : $yellow-darken-1, "darken-2" : $yellow-darken-2, "darken-3" : $yellow-darken-3, "darken-4" : $yellow-darken-4, "accent-1" : $yellow-accent-1, "accent-2" : $yellow-accent-2, "accent-3" : $yellow-accent-3, "accent-4" : $yellow-accent-4), 
+        "amber"         : ( "lighten-5" : $amber-lighten-5, "lighten-4" : $amber-lighten-4, "lighten-3" : $amber-lighten-3, "lighten-2" : $amber-lighten-2, "lighten-1" : $amber-lighten-1, "base" : $amber-base, "darken-1" : $amber-darken-1, "darken-2" : $amber-darken-2, "darken-3" : $amber-darken-3, "darken-4" : $amber-darken-4, "accent-1" : $amber-accent-1, "accent-2" : $amber-accent-2, "accent-3" : $amber-accent-3, "accent-4" : $amber-accent-4), 
+        "orange"        : ( "lighten-5" : $orange-lighten-5, "lighten-4" : $orange-lighten-4, "lighten-3" : $orange-lighten-3, "lighten-2" : $orange-lighten-2, "lighten-1" : $orange-lighten-1, "base" : $orange-base, "darken-1" : $orange-darken-1, "darken-2" : $orange-darken-2, "darken-3" : $orange-darken-3, "darken-4" : $orange-darken-4, "accent-1" : $orange-accent-1, "accent-2" : $orange-accent-2, "accent-3" : $orange-accent-3, "accent-4" : $orange-accent-4), 
+        "deep-orange"   : ( "lighten-5" : $deep-orange-lighten-5, "lighten-4" : $deep-orange-lighten-4, "lighten-3" : $deep-orange-lighten-3, "lighten-2" : $deep-orange-lighten-2, "lighten-1" : $deep-orange-lighten-1, "base" : $deep-orange-base, "darken-1" : $deep-orange-darken-1, "darken-2" : $deep-orange-darken-2, "darken-3" : $deep-orange-darken-3, "darken-4" : $deep-orange-darken-4, "accent-1" : $deep-orange-accent-1, "accent-2" : $deep-orange-accent-2, "accent-3" : $deep-orange-accent-3, "accent-4" : $deep-orange-accent-4), 
+        "brown"         : ( "lighten-5" : $brown-lighten-5, "lighten-4" : $brown-lighten-4, "lighten-3" : $brown-lighten-3, "lighten-2" : $brown-lighten-2, "lighten-1" : $brown-lighten-1, "base" : $brown-base, "darken-1" : $brown-darken-1, "darken-2" : $brown-darken-2, "darken-3" : $brown-darken-3, "darken-4" : $brown-darken-4), 
+        "blue-grey"     : ( "lighten-5" : $blue-grey-lighten-5, "lighten-4" : $blue-grey-lighten-4, "lighten-3" : $blue-grey-lighten-3, "lighten-2" : $blue-grey-lighten-2, "lighten-1" : $blue-grey-lighten-1, "base" : $blue-grey-base, "darken-1" : $blue-grey-darken-1, "darken-2" : $blue-grey-darken-2, "darken-3" : $blue-grey-darken-3, "darken-4" : $blue-grey-darken-4), 
+        "grey"          : ( "lighten-5" : $grey-lighten-5, "lighten-4" : $grey-lighten-4, "lighten-3" : $grey-lighten-3, "lighten-2" : $grey-lighten-2, "lighten-1" : $grey-lighten-1, "base" : $grey-base, "darken-1" : $grey-darken-1, "darken-2" : $grey-darken-2, "darken-3" : $grey-darken-3, "darken-4" : $grey-darken-4), 
+        "black"         : ( "base" : $black), 
+        "white"         : ( "base" : $white),
+    ), 
+    $bsik-colors
+);
+
+
+/// Map deep get
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+/// Bsik Colors
+/// @param {Arglist} $keys - name + type e.g "brown", "lighten-4"
+/// @return {*} - Desired value
+@function bsik-colors($keys...) {
+    @return map-deep-get($bsik-colors, $keys...);
+}
+
+
+
+/// Create them for bootstrap use and class generation
+$text-main-color-s2:        hsla(0,0%,100%,.9);
+$text-main-color-s1:        hsla(0,0%,100%,.8);
+$text-main-color:           hsla(0,0%,100%,.7);
+$text-main-color-f1:        hsla(0,0%,100%,.55);
+$text-main-color-f2:        hsla(0,0%,100%,.4);
+$text-negative-color-s2:    hsla(0,0%,0%,.9);
+$text-negative-color-s1:    hsla(0,0%,0%,.8);
+$text-negative-color:       hsla(0,0%,0%,.7);
+$text-negative-color-f1:    hsla(0,0%,0%,.55);
+$text-negative-color-f2:    hsla(0,0%,0%,.4);
+
+$primary:           bsik-colors("primary", "base");
+$secondary:         bsik-colors("secondary", "base");
+$success:           bsik-colors("success", "base");
+$info:              bsik-colors("info", "base");
+$warning:           bsik-colors("warning", "base");
+$danger:            bsik-colors("danger", "base");
+$light:             bsik-colors("secondary", "lighten-4");
+$dark:              bsik-colors("secondary", "darken-2");
+
+$theme-colors: ( // Will override bootstarp default to generate more
+  "primary" : $primary,         
+        "primary-l1" : bsik-colors("primary", "lighten-1"),             
+        "primary-l2" : bsik-colors("primary", "lighten-2"),         
+        "primary-l3" : bsik-colors("primary", "lighten-3"),         
+        "primary-l4" : bsik-colors("primary", "lighten-4"),         
+        "primary-l5" : bsik-colors("primary", "lighten-5"),         
+        "primary-d1" : bsik-colors("primary", "darken-1"),         
+        "primary-d2" : bsik-colors("primary", "darken-2"),         
+        "primary-d3" : bsik-colors("primary", "darken-3"),
+        "primary-d4" : bsik-colors("primary", "darken-4"),
+        "primary-d5" : bsik-colors("primary", "darken-5"),
+  "secondary" : $secondary,
+        "secondary-l1" : bsik-colors("secondary", "lighten-1"),    
+        "secondary-l2" : bsik-colors("secondary", "lighten-2"),    
+        "secondary-l3" : bsik-colors("secondary", "lighten-3"),    
+        "secondary-l4" : bsik-colors("secondary", "lighten-4"),    
+        "secondary-l5" : bsik-colors("secondary", "lighten-5"),
+        "secondary-d1" : bsik-colors("secondary", "darken-1"),    
+        "secondary-d2" : bsik-colors("secondary", "darken-2"),    
+        "secondary-d3" : bsik-colors("secondary", "darken-3"),    
+        "secondary-d4" : bsik-colors("secondary", "darken-4"),    
+        "secondary-d5" : bsik-colors("secondary", "darken-5"), 
+  "color-light"    : $text-main-color,
+        "color-light-f1" : $text-main-color-f1,
+        "color-light-f2" : $text-main-color-f2,
+        "color-light-s1" : $text-main-color-s1,
+        "color-light-s2" : $text-main-color-s2,
+  "color-dark" : $text-negative-color,
+        "color-dark-f1" : $text-negative-color-f1,
+        "color-dark-f2" : $text-negative-color-f2,
+        "color-dark-s1" : $text-negative-color-s1,
+        "color-dark-s2" : $text-negative-color-s2,
+  "success"     : $success,
+        "success-l1" : bsik-colors("success", "lighten-1"),
+        "success-d1" : bsik-colors("success", "darken-1"),
+  "info"        : $info,
+        "info-l1" : bsik-colors("info", "lighten-1"),
+        "info-d1" : bsik-colors("info", "darken-1"),
+  "warning"     : $warning,
+        "warning-l1" : bsik-colors("warning", "lighten-1"),
+        "warning-d1" : bsik-colors("warning", "darken-1"),
+  "danger"      : $danger,
+        "danger-l1" : bsik-colors("danger", "lighten-1"),
+        "danger-d1" : bsik-colors("danger", "darken-1"),
+  "light"       : $dark,
+  "dark"        : $light,
+  "white"       : bsik-colors("white", "base"),
+  "black"       : bsik-colors("black", "base"),
+  "elegant"     : bsik-colors("elegant", "base"),
+        "elegant-l1" : bsik-colors("elegant", "lighten-1"),
+        "elegant-d1" : bsik-colors("elegant", "darken-1"),
+  "stylish"     : bsik-colors("stylish", "base"),
+        "stylish-l1" : bsik-colors("stylish", "lighten-1"),
+        "stylish-d1" : bsik-colors("stylish", "darken-1"),
+  "unique"      : bsik-colors("unique", "base"),
+        "unique-l1" : bsik-colors("unique", "lighten-1"),
+        "unique-d1" : bsik-colors("unique", "darken-1"),
+  "special"     : bsik-colors("special", "base"),
+        "special-l1" : bsik-colors("special", "lighten-1"),
+        "special-d1" : bsik-colors("special", "darken-1")
+
+) !default;

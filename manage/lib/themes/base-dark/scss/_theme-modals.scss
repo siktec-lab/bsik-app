@@ -1,0 +1,22 @@
+//Variables:
+$bsik-modal-text-color: $text-negative-color !default;
+$bsik-modal-title-color: $white !default;
+
+
+.bsik-modal.modal {
+    -webkit-font-smoothing: antialiased;
+    color: $bsik-modal-text-color;
+    .modal-header {
+        border-top-left-radius: calc(#{$modal-content-border-radius}  - 3px);
+        border-top-right-radius: calc(#{$modal-content-border-radius}  - 3px);
+        background: linear-gradient(0deg, bsik-colors("secondary", "lighten-2"), bsik-colors("secondary", "lighten-4")); 
+    }
+    h5.modal-title {
+        color: $bsik-modal-title-color;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px black;
+    }
+    .btn-close {
+        color: $bsik-modal-title-color;
+    }
+}

@@ -1,0 +1,52 @@
+/******************************************************************************/
+
+// Created by: shlomo hassid.
+// Release Version : 1.0.0
+// Creation Date: 2021-03-30
+// Copyright 2021, SIKTEC.
+
+/******************************************************************************/
+
+
+/*****************************      Changelog       ****************************
+version:
+    -> initial.
+*******************************************************************************/
+
+
+/******************************  MODULE CONTENT BASE STYLING  *****************************/
+
+.container-module {
+
+    .module-header {
+        border-bottom: 3px solid $module-header-border-color;
+        padding-bottom: 10px;
+        margin: 0 0 1rem 0!important;
+        .module-title {
+            font-size: $module-header-title-size;
+            color: $module-header-title-color;
+            margin-bottom: 0.7rem;
+            padding: 0;
+            border-bottom: 0;
+            box-shadow: none;
+            >span {
+                font-weight: 400;
+                font-size: 0.7em;
+                padding: 0px 10px;
+                color: $module-header-which-color;
+            }
+        }
+        .module-desc {
+            color: $module-header-subtitle-color;
+            clear: left;
+        }
+    }
+    .module-title {
+        font-size: $module-title-size;
+        padding: 8px 0px;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid $module-title-border-color;
+        color: $module-title-color;
+    }
+
+}

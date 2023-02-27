@@ -1,0 +1,85 @@
+/******************************************************************************/
+
+// Created by: shlomo hassid.
+// Release Version : 1.0.0
+// Creation Date: 2021-03-30
+// Copyright 2021, SIKTEC.
+
+/******************************************************************************/
+
+
+/*****************************      Changelog       ****************************
+version:
+    -> initial.
+*******************************************************************************/
+
+
+/******************************  BOOTSTRAP BUTTONS  *****************************/
+
+.btn-secondary {
+    border-color: lighten($secondary, 15%);
+    &:hover {
+        background-color: lighten($secondary, 10%);
+        border-color: lighten($secondary, 15%);
+    }
+    &.dropdown-toggle.show {}
+}
+
+.btn-check:focus+.btn-secondary,
+.btn-secondary:focus {
+    color: #fff;
+    background-color: #2d2d2d;
+    border-color: lighten($secondary, 15%);
+    box-shadow: 0 0 1px 0.1rem rgba($primary, .7);
+}
+
+.btn-check:checked+.btn-secondary:focus,
+.btn-check:active+.btn-secondary:focus,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 7px 0.25rem rgba($primary, .7);
+}
+
+.btn-check:checked+.btn-secondary,
+.btn-check:active+.btn-secondary,
+.btn-secondary:active,
+.btn-secondary.active,
+.show>.btn-secondary.dropdown-toggle {
+    background-color: $secondary;
+    border-color: lighten($secondary, 15%);
+}
+
+
+//Spinner in button
+.btn {
+    span.spinner-border,
+    span.spinner-grow {
+        vertical-align: middle;
+    }
+}
+
+button.btn-bsik-action {
+    color: $text-main-color;
+    background-color: rgba(255,255,255, 0.04);
+    border-color: darken(rgb(255,255,255), 85%);
+    white-space: nowrap;
+    &:disabled {
+        opacity: 0.5;
+    }
+    &:hover {
+        background-color: rgba(255,255,255, 0.08);
+        &.icon-info i {
+            color: $info
+        }
+        &.icon-warning i {
+            color: $warning;
+        }
+        &.icon-danger i {
+            color: $danger;
+        }
+        &.icon-success i {
+            color: $success;
+        }
+    }
+}

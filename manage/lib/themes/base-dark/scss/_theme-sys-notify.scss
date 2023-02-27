@@ -1,0 +1,198 @@
+//Variables:
+$sys-notify-console-background: $secondary !default;
+$sys-notify-console-left-border: hsla(0,0%,100%,.1) !default;
+$sys-notify-console-max-width: 300px !default;
+$sys-notify-console-hover-color: $text-main-color !default;
+$sys-notify-console-hover-carret-color:$primary !default;
+$sys-notify-console-badge-color: darken($info, 60%) !default;
+$sys-notify-console-badge-bg: $info !default;
+$sys-notify-info-bg: $info !default;
+$sys-notify-info-color: darken($info, 40%) !default;
+$sys-notify-warn-bg: $warning !default;
+$sys-notify-warn-color: darken($warning, 40%) !default;
+$sys-notify-error-bg: $danger !default;
+$sys-notify-error-color: darken($danger, 40%) !default;
+// Floating:
+.bsik-notify {
+    display: none;
+    position: fixed;
+    bottom: 38px;
+    right: 8px;
+    padding: 0.5rem;
+    width: 25%;
+    max-width: $sys-notify-console-max-width;
+    z-index: 9999;
+    cursor: pointer;
+    span {
+        display: block;
+        &.notify-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        &.notify-message {
+            font-style: italic;
+            font-size: 0.85rem;
+            padding-left: 2.5rem;
+        }
+        &.notify-time {
+            font-size: 0.65rem;
+            text-align: right;
+        }
+        &.notify-release {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+    }
+    &::after {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0.9rem;
+        top: 1.85rem;
+        font-size: 2rem;
+        opacity: .2;
+    }
+    &.notify-info {
+        background-color: $sys-notify-info-bg;
+        color: $sys-notify-info-color;
+        &::after {
+            content: "\f129";
+        }
+    }
+    &.notify-warn {
+        background-color: $sys-notify-warn-bg;
+        color: $sys-notify-warn-color;
+        &::after {
+            content: "\f12a";
+        }
+    }
+    &.notify-error {
+        background-color: $sys-notify-error-bg;
+        color: $sys-notify-error-color;
+        &::after {
+            content: "\f00d";
+        }
+    }
+}
+
+// Console: 
+.console-messages {
+    width: 25%;
+    display: block;
+    float: right;
+    position: relative;
+    height: 100%;
+    max-width: $sys-notify-console-max-width;
+    border-left: 1px solid $sys-notify-console-left-border;
+    >span {
+        display: inline-block;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        cursor: pointer;
+        line-height: inherit;
+        em {
+            display: none;
+            font-style: normal;
+            background-color: $sys-notify-console-badge-bg;
+            padding: 0rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            color: $sys-notify-console-badge-color
+        }
+        i {
+            line-height: inherit;
+        }
+        i.open-icon {
+            position: absolute;
+            right: 1rem;
+        }
+        &:hover {
+            color: $sys-notify-console-hover-color;
+            .open-icon {
+                color: $sys-notify-console-hover-carret-color
+            }
+        }
+    }
+    >ul {
+        display: none;
+        position: fixed;
+        background-color: $sys-notify-console-background;
+        margin: 0;
+        padding: 2px 4px;
+        list-style: none;
+        width: 25%;
+        max-width: $sys-notify-console-max-width;
+        max-height: 200px;
+        bottom: 30px;
+        border: 1px solid $sys-notify-console-left-border;
+        box-shadow: -7px -7px 8px -6px #050505;
+        overflow: auto;
+        >li {
+            width: 100%;
+            padding: 0.15rem 0;
+            span {
+                position: relative;
+                display: block;
+                width: 100%;
+                padding: 0.55rem;
+                padding-left: 2.15rem;
+                padding-right: 1.3rem;
+                font-size: 0.85rem;
+                line-height: 1.5rem;
+                >i {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 0.5rem;
+                }
+                &::after {
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    position: absolute;
+                    left: 0rem;
+                    top: 0.6rem;
+                    font-size: 1.5rem;
+                    opacity: .6;
+                    width: 30px;
+                    text-align: center;
+                }
+                &.notify-info {
+                    background-color: $sys-notify-info-bg;
+                    color: $sys-notify-info-color;
+                    &::after {
+                        content: "\f129";
+                    }
+                }
+                &.notify-warn {
+                    background-color: $sys-notify-warn-bg;
+                    color: $sys-notify-warn-color;
+                    &::after {
+                        content: "\f12a";
+                    }
+                }
+                &.notify-error {
+                    background-color: $sys-notify-error-bg;
+                    color: $sys-notify-error-color;
+                    &::after {
+                        content: "\f00d";
+                    }
+                }
+            }
+        }
+    }
+}
