@@ -10,6 +10,9 @@ use \Siktec\Bsik\Privileges as Priv;
 /*******************  local Includes    *************************************/
 /****************************************************************************/
 
+if (!defined('PLAT_HASH_SALT')) 
+    define('PLAT_HASH_SALT', "");
+
 /****************************************************************************/
 /*******************  Custom filters / Validators     ***********************/
 /****************************************************************************/
@@ -66,7 +69,7 @@ AdminApi::register_endpoint(new ApiEndPoint(
 
         //Test Password:
         $valid = true;
-        $Pass = new Password();
+        $Pass = new Password( salt : PLAT_HASH_SALT);
         $v_token = $Pass->encrypt($Pass->generate_password()); // This will generate a random hash for validation token.
 
         //Validate email is unique:
