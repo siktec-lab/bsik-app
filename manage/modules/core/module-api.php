@@ -329,9 +329,9 @@ AdminApi::register_endpoint(new ApiEndPoint(
             $modules = $Api::$db->map("name")->get("bsik_modules");
         }
         foreach ($modules as &$module) {
-            $module["settings"] = json_decode($module["settings"],  true);
-            $module["menu"]     = json_decode($module["menu"],      true);
-            $module["info"]     = json_decode($module["info"],      true);
+            $module["settings"] = Std::$str::parse_jsonc($module["settings"],   onerror: []);
+            $module["menu"]     = Std::$str::parse_jsonc($module["menu"],       onerror: []);
+            $module["info"]     = Std::$str::parse_jsonc($module["info"],       onerror: []);
         }
         $Api->request->answer_data($modules);
         return true;
