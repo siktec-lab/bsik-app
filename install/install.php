@@ -76,13 +76,11 @@ $run->add_to_folder( //filepond is required add supprot for better upload handli
 /***********************************************************************************/
 /******************************  Register themes core  *****************************/
 /***********************************************************************************/
-/*
 $run->add_to_folder( //font-awesome is required installed with composer supports icons across manage platform
     "themes", "bootstrap", 
     ".".DS."vendor".DS."twbs".DS."bootstrap".DS."scss".DS,
     "."
 );
-*/
 
 /**************************************************************************************/
 /******************************  Execute installer steps  *****************************/
