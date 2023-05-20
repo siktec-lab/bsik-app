@@ -39,6 +39,11 @@ class TopBarBlock extends Block {
      */
     public function render() : string {
         $this->settings["plat_logo"] = $this->Page->get("plat-logo");
+        $this->settings["plat_user_email"] = $this->Page->get("plat-user-email");
+        $this->settings["plat_user_fname"] = $this->Page->get("plat-user-fname");
+        $this->settings["plat_user_lname"] = $this->Page->get("plat-user-lname");
+        $this->settings["plat_admin_url_base"] = $this->Page->get("plat-admin-url-base");
+        
         return $this->engine->render("topbar", $this->settings);
     }
 

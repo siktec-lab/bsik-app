@@ -39,6 +39,10 @@ Trace::add_trace("Required META set done.", __FILE__.__LINE__);
 
 /******************************  Store Important values  *****************************/
 $APage->store("plat-logo", CoreSettings::$url["manage-lib"]."/img/logo.svg");
+$APage->store("plat-user-email", $User->user_data["email"]);
+$APage->store("plat-user-fname", $User->user_data["first_name"]);
+$APage->store("plat-user-lname", $User->user_data["last_name"]);
+$APage->store("plat-admin-url-base", CoreSettings::$url["base"]);
 
 /******************************  Set Body tag  *****************************/
 $APage->body_tag("style=''");

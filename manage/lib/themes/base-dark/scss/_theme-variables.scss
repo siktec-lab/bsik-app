@@ -16,7 +16,7 @@
 // "Apple Color Emoji",
 // "Segoe UI Emoji",
 // "Segoe UI Symbol" !default;
-
+// $enable-dark-mode: false;
 $font-family-sans-serif: "Poppins",sans-serif;
 $font-size-root: 14px;
 
@@ -100,8 +100,10 @@ $list-group-action-hover-color  : $text-main-color;
 $list-group-action-active-color : $text-main-color;
 $list-group-action-active-bg    : lighten($list-group-hover-bg, 15%);
 
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Forms bootstrap variables:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+$input-bg : bsik-colors("white", "base");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Modals:
@@ -116,7 +118,7 @@ $list-group-action-active-bg    : lighten($list-group-hover-bg, 15%);
 // $modal-title-line-height:           $line-height-base;
 
 // $modal-content-color:               null;
-// $modal-content-bg:                  $white;
+$modal-content-bg:                     bsik-colors("grey", "lighten-5");
 // $modal-content-border-color:        rgba($black, .2);
 // $modal-content-border-width:        $border-width;
 $modal-content-border-radius:          0.5rem;
@@ -124,7 +126,7 @@ $modal-content-border-radius:          0.5rem;
 // $modal-content-box-shadow-xs:       $box-shadow-sm;
 // $modal-content-box-shadow-sm-up:    $box-shadow;
 
-// $modal-backdrop-bg:                 $black;
+// $modal-backdrop-bg:                   $black;
 // $modal-backdrop-opacity:            .5;
 // $modal-header-border-color:         $border-color;
 // $modal-footer-border-color:         $modal-header-border-color;

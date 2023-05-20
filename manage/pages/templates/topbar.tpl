@@ -19,10 +19,10 @@
     </label>
     <ul class="menu-list">
         <li class="menu-header">
-            <span class="user-name">Shlomo Hassid</span>
+            <span class="user-name">{{ plat_user_fname|e }} {{ plat_user_lname|e }}</span>
             <span class="user-email">
                 <i class='fas fa-user fw-normal'></i>
-                shlomohassid@gmail.com
+                {{ plat_user_email|e}}
             </span>
         </li>
         <li class="menu-item" data-menu-action="avoid" data-param="profile" data-menu-id="profile">
@@ -43,7 +43,7 @@
             {# <i class='fas fa-swatchbook'></i>Personalize #}
             <span class="material-icons-outlined lg space-4">tune</span>Personalize
         </li>
-        <li class="menu-item" data-menu-action="navigate" data-param="/bsik/manage/logout">
+        <li class="menu-item" data-menu-action="navigate" data-param="{{ plat_admin_url_base|e('html_attr') }}/manage/logout">
             {# <i class='fas fa-sign-out-alt'></i>Sign Out #}
             <span class="material-icons-outlined lg space-4">logout</span>Sign Out
         </li>
