@@ -40,7 +40,7 @@ class FooterBlock extends Block {
      * @return string
      */
     public function render() : string {
-        $this->settings["js_body"]    = $this->Page->render_libs("js", "body");
+        $this->settings["js_body"]    = $this->Page->render_libs("js", "body", false);
         return $this->engine->render("footer", $this->settings);
     }
 
