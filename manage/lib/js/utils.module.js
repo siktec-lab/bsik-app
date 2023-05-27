@@ -216,3 +216,23 @@ export function trimChars(string, character) {
     const last = arr.reverse().findIndex(char => char !== character);
     return (first === -1 && last === -1) ? '' : string.substring(first, string.length - last);
 }
+
+export function ObjHasNestedProperty(obj, propertyPath) {
+    if (typeof obj !== 'object' || obj === null) {
+      return false; // Not an object
+    }
+    
+    const properties = propertyPath.split('.');
+    let currentObj = obj;
+    
+    for (let i = 0; i < properties.length; i++) {
+      const property = properties[i];
+      
+      if (!currentObj.hasOwnProperty(property)) {
+        return false; // Property doesn't exist
+      }
+      
+      currentObj = currentObj[property];
+    }
+    return true; // All properties exist in the nested path
+}
