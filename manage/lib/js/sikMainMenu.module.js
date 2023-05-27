@@ -36,8 +36,8 @@ export class MainMenu {
         //     console.log(ev, ele, tag)
         // });
         if (initialize) this.init();
-        console.log(this.loaded, this.el);
-        console.log(this.menu);
+        // console.log(this.loaded, this.el);
+        // console.log(this.menu);
     }
     init() {
         this.el.container   = document.querySelector(this.selector);

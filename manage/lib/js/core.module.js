@@ -66,8 +66,6 @@ export function apiRequest(url, req, _data, handlers, formData = false) {
     //Extend settings & handlers:
     $.extend(ajaxSet, handlers);
     //Execute:
-    /* SH: added - 2021-05-17 => Remove later this is for dev */
-    console.log(url, ajaxSet);
     return $.ajax(url, ajaxSet);
 }
 
