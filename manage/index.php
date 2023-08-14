@@ -143,7 +143,10 @@ switch (AdminPage::$request->type) {
             $APage->load_settings("global", true);
             
             //Load requested module:
-            $APage->load_module(Api : $AApi, User: $User);
+            if (!$APage->load_module(Api : $AApi, User: $User)) {
+                Trace::add_trace("Module could not be loaded", __FILE__);
+                $APage::error_page(404); // No module
+            }
 
             //-----
             Trace::add_trace("Module loaded to APage.", __FILE__);
