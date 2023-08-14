@@ -12,7 +12,7 @@
 
 /******************************  Configuration - General  *****************************/
 define("BSIK_SET_DOMAIN", "http://localhost");
-define("BSIK_IN_FOLDER",  "folder");
+define("BSIK_IN_FOLDER",  "");
 
 /************************** System Configuration & Trace ******************************/
 define('PLAT_CHARSET',                      'utf-8');
@@ -22,11 +22,15 @@ if (!defined('USE_BSIK_ERROR_HANDLERS')) define('USE_BSIK_ERROR_HANDLERS', true)
 
 /******************************  Configuration - DataBase  *****************************/
 $conf = [];
-//Insert your db credentials:
+//Insert your db credentials this will be used in the system as default connection:
 $conf["db"] = [
-    'host'   => 'localhost',
-    'port'   => '3306',
-    'name'   => 'bsik',
-    'user'   => 'xxxxxxx',
-    'pass'   => 'xxxxxxx'
+    'host'       => 'localhost',
+    'port'       => '3306',
+    'db'         => 'bsik',
+    'username'   => 'xxxxxxx',
+    'password'   => 'xxxxxxx',
+    'charset'    => 'utf8mb4',
+    'socket'     => null
 ];
+
+// Add more configurations here:
