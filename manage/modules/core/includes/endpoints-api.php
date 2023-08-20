@@ -39,23 +39,23 @@ AdminApi::register_endpoint(new ApiEndPoint(
 
         //Set flags to load anything - will ignore checks of front, global, external:
         $Api::$ignore_visibility = true;
+
         //Load all endpoints:
         foreach (AdminPage::$modules->get_all_installed() as $module_name) {
-            //All installed known modules:
-            $module =  AdminPage::$modules->module_installed($module_name);
+
+            $module_api = AdminPage::$modules::module_part_path($module_name, "api");
             //include static endpoints:
-            if (Std::$fs::file_exists("modules", [$module["path"], "module-api.php"])) {
+            if (!empty($module_api)) {
                 $modules[] = $module_name;
-                $path = Std::$fs::path_to("modules", [$module["path"], "module-api.php"])["path"];
                 try { 
-                    include_once $path;
+                    include_once $module_api;
                 } catch(Throwable $e) {
                     //This is an error thrown in the endpoint code - don't fail just log this:
                     $Endpoint->log_error(
                         message : "Error while loading endpoints while scanning.", 
                         context : [
                             "loaded_module" => $module_name,
-                            "endpoint_file" => $path,
+                            "endpoint_file" => $module_api,
                             "error"         => $e->getMessage(),
                             "line"          => $e->getLine()
                         ]
