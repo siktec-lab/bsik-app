@@ -36,6 +36,12 @@ Base::connect_db();
 Trace::add_trace("Establish db connection",__FILE__);
 
 /******************************************************************************/
+/*********************  Add secondary connection ******************************/
+/******************************************************************************/
+// Base::add_db_connection("shared", $conf["db-catalog"]);
+// Trace::add_trace("Establish shared db connection",__FILE__);
+
+/******************************************************************************/
 /*********************  LOAD CORE SETTINGS  ***********************************/
 /******************************************************************************/
 if (!CoreSettings::extend_from_database(Base::$db)) {
@@ -128,7 +134,7 @@ switch (AdminPage::$request->type) {
             Trace::add_trace("Requested module is not set", __FILE__);
             $APage::error_page(404); // No module
         }
-
+        
         //Make sure exists and is allowed:
         //TODO: move this to render block so we can return the good error in body:
         // elseif (false && !$APage->is_allowed_to_use_module($User)) {
@@ -137,6 +143,7 @@ switch (AdminPage::$request->type) {
         
         //Everything is fine -> render the page:
         else {
+
             Trace::add_trace("User check successfully - signed, is-set, is-allowed", __FILE__);
 
             //Load global core settings:
@@ -150,11 +157,16 @@ switch (AdminPage::$request->type) {
 
             //-----
             Trace::add_trace("Module loaded to APage.", __FILE__);
-            Trace::add_trace("Loaded paths", __FILE__, $APage::$module->paths);
-            Trace::reg_vars(["Loaded module" => $APage::$module]);
-            Trace::reg_vars(["Loaded Page settings (extended)" => $APage::$module->settings]);
-            Trace::reg_var("Loaded Module settings (extended)", $APage::$module->settings->get_all(true));
-            Trace::reg_var("Loaded View settings", $APage::$module->current_view->settings->get_all(true));
+            if (!isset($APage::$module) || is_null($APage::$module)) {
+                Trace::add_trace("Module is not set", __FILE__);
+            } else {
+                Trace::add_trace("Loaded paths", __FILE__, $APage::$module->paths);
+                Trace::reg_vars(["Loaded module" => $APage::$module]);
+                Trace::reg_vars(["Loaded Page settings (extended)" => $APage::$module->settings]);
+                Trace::reg_var("Loaded Module settings (extended)", $APage::$module->settings->get_all(true));
+                Trace::reg_var("Loaded View settings", $APage::$module->current_view->settings->get_all(true));
+            }
+
             //-----
             
             require_once CoreSettings::$path["manage-pages"].DS."base.php";
@@ -179,8 +191,8 @@ switch (AdminPage::$request->type) {
             Trace::add_trace("Loaded module paths", __FILE__, $APage::$module->paths);
             Trace::add_trace("User check successfully - signed, is-set, is-allowed", __FILE__);
             //Preloads the module endpoints:
-            if (Std::$fs::file_exists($APage::$module->paths["module-api"])) {
-                include_once($APage::$module->paths["module-api"]);
+            if (Std::$fs::file_exists($APage::$module->paths["api"])) {
+                include_once($APage::$module->paths["api"]);
             }
         }
         //Execute if everything is ok:
