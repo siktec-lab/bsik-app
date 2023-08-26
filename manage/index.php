@@ -197,7 +197,9 @@ switch (AdminPage::$request->type) {
         }
         //Execute if everything is ok:
         if ($AApi->request->answer_code() === 0) {
-            $AApi->parse_request($_REQUEST);
+            $AApi->parse_request(
+                Std::$arr::extend($_GET, $_POST) //NOTE: $_REQUEST is not used because it is not always available and will add cookies which we don't want.  
+            ); 
             $AApi->answer(print : true, execute : true, external : true);
         } else {
             $AApi->answer(print : true, execute : false, external : true);
