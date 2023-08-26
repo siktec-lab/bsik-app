@@ -14,8 +14,7 @@ version:
 *******************************************************************************/
 //Fonts and additional icons:
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
 
 @import "../../bootstrap/functions";
 
@@ -23,12 +22,12 @@ version:
 @import "theme-variables";
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "../../bootstrap/variables"; 
+@import "../../bootstrap/variables";  
 @import "../../bootstrap/variables-dark";
 @import "../../bootstrap/mixins";
-
+ 
 // 4. Include any optional Bootstrap components as you like
-@import "../../bootstrap/maps"; 
+@import "../../bootstrap/maps";  
 @import "../../bootstrap/mixins"; 
 @import "../../bootstrap/root"; 
 @import "../../bootstrap/reboot";

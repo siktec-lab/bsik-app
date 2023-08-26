@@ -1,13 +1,6 @@
 
 @use "sass:map";
 
-
-
-
-
-
-
-
 /***************************************************************************/
 /* Components::alert
 /***************************************************************************/ 
@@ -103,14 +96,59 @@ $comp-card-btn-secondary: (
 $comp-action-bar: (
     "wrap-bg"           : transparent,
     "item-bg"           : transparent,
-    "item-bg-hover"     : bsik-colors("secondary", "darken-1"),
+    "item-bg-hover"     : bsik-colors("secondary", "base"),
     "item-bg-active"    : darken(bsik-colors("secondary", "base"), 8%),
     "item-color"        : $text-main-color-f1,
     "item-color-hover"  : $text-main-color-s2,
-    "item-width"        : 140px
+    "item-width"        : 140px,
+    "label-size"        : 0.925rem,
+    "icon-size"         : 2.275em
 ) !default;
 
+div.action-element {
+    padding: 1rem;
+    cursor: pointer;
+    transition: all .2s ease-out;
+    background-color: map-get($comp-action-bar,  "item-bg");
+    border: 1px solid map-get($comp-action-bar,  "item-bg");
+    color: map-get($comp-action-bar,  "item-color") !important;
+    >i.bsik-icon,
+    >span.bsik-icon {
+        text-align: center;
+        display: block;
+        font-size: map-get($comp-action-bar,  "icon-size");
+    }
+    >span.bsik-icon {
+        font-size: map-get($comp-action-bar,  "icon-size") * 1.175;
+    }
+    >span.action-label {
+        font-size: map-get($comp-action-bar,  "label-size");
+        text-transform: capitalize;
+        text-align: center;
+        padding-top: 0.5rem;
+        display: block;
+    }
+    >.form-control,
+    >.form-select {
+        margin-top: 0.5rem;
+    }
+    &:hover {
+        transform: translate3d(0,-4px,0);
+        background-color: map-get($comp-action-bar,  "item-bg-hover");
+        border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
+        color: map-get($comp-action-bar,  "item-color-hover") !important;
+    }
+    &:active,
+    &.active {
+        border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
+        background-color: map-get($comp-action-bar,  "item-bg-active");
+    }
+    &.type-press {
+
+    }
+}
 ul.bsik-action-bar {
+
     list-style: none;
     display:flex;
     padding: 1rem;
@@ -123,39 +161,47 @@ ul.bsik-action-bar {
 
     >li.action-item {
         text-align: center;
-        padding: 1rem;
-        cursor: pointer;
         outline: 0;
-        transition: all .2s ease-out;
-        background-color: map-get($comp-action-bar,  "item-bg");
-        border: 1px solid map-get($comp-action-bar,  "item-bg");
         width: map-get($comp-action-bar,  "item-width");
-        color: map-get($comp-action-bar,  "item-color") !important;
-        >i {
-            text-align: center;
-            display: block;
-            font-size: 1.65em;
+        >.action-element {
+            width: 100%;
+            height: 100%;
         }
-        >span {
-            text-transform: capitalize;
-            text-align: center;
-            padding-top: 0.5rem;
-            display: block;
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
         }
-        &:hover {
-            transform: translate3d(0,-4px,0);
-            background-color: map-get($comp-action-bar,  "item-bg-hover");
-            border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
-            color: map-get($comp-action-bar,  "item-color-hover") !important;
-            i {
-                
-            }
+        &.hidden {
+            display: none;
         }
-        &:active,
-        &.active {
-            border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
-            background-color: map-get($comp-action-bar,  "item-bg-active");
+        &.span-125 {
+            width: map-get($comp-action-bar,  "item-width") * 1.25;
         }
+        &.span-15 {
+            width: map-get($comp-action-bar,  "item-width") * 1.5;
+        }
+        &.span-175 {
+            width: map-get($comp-action-bar,  "item-width") * 1.75;
+        }
+        &.span-2 {
+            width: map-get($comp-action-bar,  "item-width") * 2;
+        }
+        &.span25 {
+            width: map-get($comp-action-bar,  "item-width") * 2.5;
+        }
+        &.span-3 {
+            width: map-get($comp-action-bar,  "item-width") * 3;
+        }
+        &.span-4 {
+            width: map-get($comp-action-bar,  "item-width") * 4;
+        }
+        &.span-5 {
+            width: map-get($comp-action-bar,  "item-width") * 5;
+        }
+        &.span-6 {
+            width: map-get($comp-action-bar,  "item-width") * 6;
+        }
+        
     }
 }
 

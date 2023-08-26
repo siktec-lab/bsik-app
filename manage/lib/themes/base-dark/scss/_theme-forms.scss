@@ -1,11 +1,21 @@
 // Forms basic
-// Input +  label wrapper styles
+/*************************************************************
+* Override Bootstrap variables
+**************************************************************/
 $input-padding-y: 0.85rem;
 $input-padding-x: 1rem;
-$input-padding-y-sm: $input-padding-y * 0.75;
-$input-padding-x-sm: $input-padding-x * 0.75;
-$input-padding-y-lg: $input-padding-y * 1.25;
-$input-padding-x-lg: $input-padding-x * 1.25;
+$input-padding-y-xs:              $input-btn-padding-y-sm * 0.85;
+$input-padding-x-xs:              $input-btn-padding-x-sm * 0.85;
+$input-font-size-xs:              $input-font-size-sm * 0.85;
+$form-select-padding-y-xs:        $input-padding-y-xs;
+$form-select-padding-x-xs:        $input-padding-x-xs;
+$form-select-font-size-xs:        $input-font-size-xs;
+$input-border-radius-xs:          var(--#{$prefix}border-radius-sm);
+$form-select-border-radius-xs:    $input-border-radius-xs;
+
+/*************************************************************
+* Style variables
+**************************************************************/
 $form-file-button-color: $text-main-color-f2;
 $form-file-button-bg: bsik-colors("secondary", "base");
 $form-file-button-hover-bg: bsik-colors("secondary", "lighten-1");
@@ -32,7 +42,6 @@ $sikform-formtext-color: $text-main-color-f2;
     height: auto;
     width: 15px;
 }
-
 
 /***************************************************************************/
 /* BSik Dropdown
@@ -208,11 +217,26 @@ textarea:focus + div.max-type-counter {
         background-color: transparent;
         border: solid transparent;
         border-width: $input-border-width 0;
+        &.form-control-xs,
         &.form-control-sm,
         &.form-control-lg {
             padding-right: 0;
             padding-left: 0;
         }
+    }
+    .form-control-xs {
+        padding: $input-padding-y-xs $input-padding-x-xs;
+        &::file-selector-button {
+            padding: $input-padding-y-xs $input-padding-x-xs;
+            margin: (-$input-padding-y-xs) (-$input-padding-x-xs);
+            margin-inline-end: $input-padding-x-xs;
+        }
+        &::-webkit-file-upload-button {
+            padding: $input-padding-y-xs $input-padding-x-xs;
+            margin: (-$input-padding-y-xs) (-$input-padding-x-xs);
+            margin-inline-end: $input-padding-x-xs;
+        }
+        @include font-size($input-font-size-xs);
     }
     .form-control-sm {
         padding: $input-padding-y-sm $input-padding-x-sm;
@@ -226,6 +250,7 @@ textarea:focus + div.max-type-counter {
             margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
             margin-inline-end: $input-padding-x-sm;
         }
+        @include font-size($input-font-size-sm);
     }
     .form-control-lg {
         padding: $input-padding-y-lg $input-padding-x-lg;
@@ -239,6 +264,7 @@ textarea:focus + div.max-type-counter {
             margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
             margin-inline-end: $input-padding-x-lg;
         }
+        @include font-size($input-font-size-lg);
     }
     // Make sure textareas don't shrink too much when resized
     textarea {
@@ -304,12 +330,16 @@ textarea:focus + div.max-type-counter {
             text-shadow: 0 0 0 $form-select-color;
         }
     }
+    .form-select-xs {
+        padding: $form-select-padding-y-xs $form-select-padding-x-xs;
+        @include font-size($form-select-font-size-xs);
+    }
     .form-select-sm {
-        padding: $input-padding-y-sm $input-padding-x-sm;
+        padding: $form-select-padding-y-sm $form-select-padding-x-sm;
         @include font-size($form-select-font-size-sm);
     }
     .form-select-lg {
-        padding: $input-padding-y-lg $input-padding-x-lg;
+        padding: $form-select-padding-y-lg $form-select-padding-x-lg;
         @include font-size($form-select-font-size-lg);
     }
 
@@ -336,6 +366,133 @@ textarea:focus + div.max-type-counter {
             }
             .form-check-label {
                 font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+
+/***************************************************************************/
+/* BSik light forms
+/***************************************************************************/
+$sikform-input-color-light:                 $sikform-input-color;
+$sikform-input-bg-light:                    $sikform-input-bg;
+$sikform-input-bg-focus-light:              $sikform-input-bg-focus;
+$sikform-input-placeholder-color-light:     $sikform-input-placeholder-color;
+$input-disabled-border-color-light:         $input-disabled-border-color;
+$form-file-button-color-light:              $form-file-button-color;
+$form-file-button-bg-light:                 $form-file-button-bg;
+$form-file-button-hover-bg-light:           $form-file-button-hover-bg;
+$sikform-formtext-color-light:              $sikform-formtext-color;
+$input-plaintext-color-light:               $input-plaintext-color;
+$sikform-select-indicator-light:            $sikform-select-indicator;
+$form-select-focus-border-color-light:      $form-select-focus-border-color;
+$form-select-box-shadow-light:              $form-select-box-shadow;
+$form-select-focus-box-shadow-light:        $form-select-focus-box-shadow;
+$sikform-select-indicator-disabled-light:   $sikform-select-indicator-disabled;
+$form-select-color-light:                   $form-select-color;
+
+.sik-form-init.light-forms {
+    //
+    // Form Control
+    //
+    .form-control {
+        color: $sikform-input-color;
+        background-color: $sikform-input-bg;
+        // Customize the `:focus` state to imitate native WebKit styles.
+        &:focus {
+            color: $sikform-input-color;
+            background-color: $sikform-input-bg-focus;
+            outline: 1px solid lighten($sikform-input-bg-focus, 5%);
+        }
+        // Placeholder
+        &::placeholder {
+            color: $sikform-input-placeholder-color;
+        }
+        // Disabled and read-only inputs
+        &:disabled,
+        &[readonly] {
+            background-color: darken($sikform-input-bg, 2%);
+            border-color: $input-disabled-border-color;
+        }
+        // File input buttons theming
+        &::file-selector-button {
+            color: $form-file-button-color;
+            @include gradient-bg($form-file-button-bg);
+        }
+        &:hover:not(:disabled):not([readonly])::file-selector-button {
+            background-color: $form-file-button-hover-bg;
+            color: lighten($primary, 20%);
+        }
+        &::-webkit-file-upload-button {
+            color: $form-file-button-color;
+            @include gradient-bg();
+            border-color: lighten($form-file-button-bg, 10%);
+        }
+        &:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+            background-color: $form-file-button-hover-bg;
+            color: lighten($primary, 5%);
+        }
+    }
+    //
+    // Form text
+    //
+    .form-text {
+        color: $sikform-formtext-color;
+    }
+    // Readonly controls as plain text
+    .form-control-plaintext {
+        color: $input-plaintext-color;
+        background-color: transparent;
+        border: solid transparent;
+    }
+    //
+    // Form Select
+    //
+    // Replaces the browser default select with a custom one, mostly pulled from
+    .form-select {
+        color: $sikform-input-color;
+        background-color: $sikform-input-bg;
+        background-image: escape-svg($sikform-select-indicator);
+        background-repeat: no-repeat;
+        &:focus {
+            border-color: $form-select-focus-border-color;
+            @if $enable-shadows {
+                @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+            }
+            @else {
+                box-shadow: $form-select-focus-box-shadow;
+            }
+        }
+        &:disabled {
+            color: darken($sikform-input-color, 40%);
+            background-color: darken($sikform-input-bg, 2%);
+            background-image: escape-svg($sikform-select-indicator-disabled);
+        }
+        // Remove outline from select box in FF
+        &:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 $form-select-color;
+        }
+    }
+    //
+    // Form check
+    //
+    .form-check {
+        &.form-switch {
+            .form-check-input {
+                background-color: bsik-colors("secondary", "lighten-5");
+                border-color: bsik-colors("secondary", "lighten-5");
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.45)'/></svg>");
+                &:focus {
+                    border-color: bsik-colors("secondary", "base");
+                    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.45)'/></svg>");
+                }
+                &:checked {
+                    border-color: bsik-colors("green", "base");
+                    background-color: bsik-colors("green", "base");
+                    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.45)'/></svg>");
+                }
             }
         }
     }
