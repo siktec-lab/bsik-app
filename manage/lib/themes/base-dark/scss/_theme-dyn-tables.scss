@@ -14,12 +14,12 @@ version:
 *******************************************************************************/
 
 $dyn-table-border-color:        hsla(0,0%,100%,.1) !default;
-$dyn-table-background:          bsik-colors("secondary", "darken-1") !default;
-$dyn-table-hover-bg:            darken($dyn-table-background, 2%) !default;
+$dyn-table-background:          darken(bsik-colors("secondary", "darken-1"), 2%) !default;
+$dyn-table-hover-bg:            darken($dyn-table-background, 3%) !default;
 $dyn-table-header-background:   lighten($dyn-table-background, 2%) !default;
 $dyn-table-body-color:          $text-main-color;
-$dyn-table-header-color:        $text-main-color-s1;
-$dyn-table-body-font-size:      0.95em;
+$dyn-table-header-color:        $text-main-color-s1; 
+$dyn-table-body-font-size:      0.9em;
 $dyn-table-header-font-size:    $font-size-root;
 
 $dyn-table-dark-border-color: #4c4c4c !default;
@@ -30,7 +30,8 @@ $dyn-table-pager-bg: bsik-colors("secondary", "darken-1") !default;
 $dyn-table-pager-border: transparent !default;
 $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7) !default;
 
-
+$dyn-table-loading-background: bsik-colors("secondary", "darken-3") !default;
+$dyn-table-loading-opacity: 0.8 !default;
 /******************************  BOOTSTRAP TABLE  *****************************/
 
 .bootstrap-table {
@@ -112,6 +113,7 @@ $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7) !default;
         clear: both;
         .table {
             background-color: $dyn-table-background;
+            --bs-table-bg : $dyn-table-background; // NOTE: override bootstrap table background
             width: 100%;
             margin-bottom: 0 !important;
             border-color: $dyn-table-border-color;
@@ -240,7 +242,7 @@ $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7) !default;
             height: 100%;
             .fixed-table-loading {
                 align-items: center;
-                background: $dyn-table-background;
+                background: $dyn-table-loading-background;
                 display: flex;
                 justify-content: center;
                 position: absolute;
@@ -253,7 +255,7 @@ $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7) !default;
                 border: 1px solid $dyn-table-border-color;
                 &.open {
                     visibility: visible;
-                    opacity: 1;
+                    opacity: $dyn-table-loading-opacity;
                 }
                 .loading-wrap {
                     align-items: baseline;
@@ -297,7 +299,7 @@ $dyn-table-pager-focus: 0 0 1px 0.1rem rgba($primary, .7) !default;
                     .animation-dot,
                     .animation-wrap::after,
                     .animation-wrap::before {
-                        background: $dyn-table-background;
+                        background: $dyn-table-loading-background;
                     }
                 }
             }
