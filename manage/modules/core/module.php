@@ -313,12 +313,25 @@ Modules::module("core")->register_view(
         $actions_bar   = Components::action_bar(
             actions : [
                 $this->page::$issuer_privileges->if("modules.endpoints")->then( 
-                    do   : ["action" => "refresh-endpoints-list", "text" => "Scan Endpoints", "icon" => "fa-binoculars"], 
+                    do   : [
+                        "type"   => "press",
+                        "action" => "refresh-endpoints-list", 
+                        "text"   => "Scan Endpoints", 
+                        "icon"   => BsikIcon::fas("fa-binoculars"),
+                        "span"   => 1,
+                        "state"  => ""
+                    ], 
                     else : [], 
                     args : []
                 ),
                 $this->page::$issuer_privileges->if("modules.endpoints")->then( 
-                    do   : ["action" => "open-create-dynamic-endpoint", "text" => "Create Endpoint", "icon" => "fa-code-branch"], 
+                    do   : [
+                        "action"    => "open-create-dynamic-endpoint", 
+                        "text"      => "Create Endpoint", 
+                        "icon"      => BsikIcon::fas("fa-code-branch"),
+                        "span"      => 1,
+                        "state"     => "disabled tag-disabled"
+                    ], 
                     else : [], 
                     args : []
                 )

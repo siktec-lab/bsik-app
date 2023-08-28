@@ -77,7 +77,13 @@ Modules::module("users")->register_view(
         $actions_bar   = Components::action_bar(
             actions : [
                 $this->page::$issuer_privileges->if("users.create")->then( 
-                    do   : ["action" => "open-create-user-modal", "text" => "Create User", "icon" => "fa-user-plus"], 
+                    do   : [
+                        "type"   => "press",
+                        "action" => "open-create-user-modal", 
+                        "text"   => "Create User", 
+                        "icon"   => BsikIcon::fas("fa-user-plus"),
+                        "span"   => 1
+                    ], 
                     else : [], 
                     args : []
                 ),
@@ -310,9 +316,33 @@ Modules::module("users")->register_view(
         //only expose by privileges:
         $actions_bar   = Components::action_bar(
             actions : [
-                $this->page::$issuer_privileges->if("roles.create", "roles.grant")->then( do : ["action" => "open-create-role-modal", "text" => "New Role", "icon" => "shield"], else : [], args : []),
-                ["action" => "open-role-report-modal", "text" => "Roles Report",    "icon" => "fa-file-alt"],
-                ["action" => "open-create-role-modal", "text" => "Users Summary",   "icon" => "fa-user-shield"],
+                $this->page::$issuer_privileges->if("roles.create", "roles.grant")->then( 
+                    do : [
+                        "type"   => "press",
+                        "action" => "open-create-role-modal", 
+                        "text"  => "New Role", 
+                        "icon"  => BsikIcon::fas("shield"),
+                        "span"  => 1
+                    ], 
+                    else : [], 
+                    args : []
+                ),
+                [
+                    "type"      => "press",
+                    "action"    => "open-role-report-modal", 
+                    "text"      => "Roles Report",    
+                    "icon"      => BsikIcon::fas("fa-file-alt"),
+                    "span"      => 1,
+                    "state"     => "disabled tag-disabled"
+                ],
+                [
+                    "type"      => "press",
+                    "action"    => "open-create-role-modal", 
+                    "text"      => "Users Summary",   
+                    "icon"      => BsikIcon::fas("fa-user-shield"),
+                    "span"      => 1,
+                    "state"     => "disabled tag-disabled"
+                ],
             ],
             colors : [],
             class : ""
