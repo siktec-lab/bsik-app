@@ -102,7 +102,12 @@ $comp-action-bar: (
     "item-color-hover"  : $text-main-color-s2,
     "item-width"        : 140px,
     "label-size"        : 0.925rem,
-    "icon-size"         : 2.275em
+    "icon-size"         : 2.275em,
+    "progress-bg"       : rgba(255, 255, 255,.04),
+    "progress-speed"    : 2.5s,
+    "tag-color"         : #212121,
+    "tag-progress"      : #96e373,
+    "tag-disabled"      : #ff8a8a,
 ) !default;
 
 div.action-element {
@@ -143,9 +148,6 @@ div.action-element {
         border: 1px solid map-get($comp-action-bar,  "item-bg-hover");
         background-color: map-get($comp-action-bar,  "item-bg-active");
     }
-    &.type-press {
-
-    }
 }
 ul.bsik-action-bar {
 
@@ -163,6 +165,7 @@ ul.bsik-action-bar {
         text-align: center;
         outline: 0;
         width: map-get($comp-action-bar,  "item-width");
+        position: relative;
         >.action-element {
             width: 100%;
             height: 100%;
@@ -170,6 +173,35 @@ ul.bsik-action-bar {
         &.disabled {
             opacity: 0.5;
             pointer-events: none;
+        }
+        &.in-progress {
+            opacity: 1;
+            background: linear-gradient(120deg, transparent 30%, map-get($comp-action-bar, "progress-bg") 50%, transparent 70%);
+            background-size: 400%;
+            animation: loading-action-element map-get($comp-action-bar, "progress-speed") ease-in-out infinite;
+        }
+        &.tag-disabled,
+        &.tag-progress {
+            border-radius: 4px;
+            &::after {
+                content: 'PROGRESS';
+                position: absolute;
+                font-size: 0.6rem;
+                font-weight: 600;
+                color: map-get($comp-action-bar,  "tag-color");
+                text-transform: uppercase;
+                top: 5px;
+                left: 5px;
+                padding : 0.275rem 0.5rem 0.1rem 0.6rem;
+                background-color: map-get($comp-action-bar,  "tag-progress");
+                border-radius: 10% / 35%;
+            }
+        }
+        &.tag-disabled {
+            &::after {
+                content: 'DISABLED';
+                background-color: map-get($comp-action-bar,  "tag-disabled");
+            }
         }
         &.hidden {
             display: none;
@@ -202,6 +234,15 @@ ul.bsik-action-bar {
             width: map-get($comp-action-bar,  "item-width") * 6;
         }
         
+    }
+}
+
+@keyframes loading-action-element {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
     }
 }
 
@@ -817,5 +858,3 @@ $comp-settings-list: (
     background-color: rgb(230, 230, 230);
     color: rgb(94, 94, 94);
 }
-
-
