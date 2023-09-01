@@ -32,14 +32,8 @@ Trace::add_step(__FILE__, "Controller - manage index");
 /*********************  Load Conf and DataBase  *****************************/
 Base::configure($conf);
 Trace::add_trace("Loaded Base Configuration Object",__FILE__, $conf);
-Base::connect_db();
+Base::connect_db(); // Will connect to the default db connection and all the others
 Trace::add_trace("Establish db connection",__FILE__);
-
-/******************************************************************************/
-/*********************  Add secondary connection ******************************/
-/******************************************************************************/
-// Base::add_db_connection("shared", $conf["db-catalog"]);
-// Trace::add_trace("Establish shared db connection",__FILE__);
 
 /******************************************************************************/
 /*********************  LOAD CORE SETTINGS  ***********************************/
@@ -135,6 +129,7 @@ switch (AdminPage::$request->type) {
             $APage::error_page(404); // No module
         }
         
+
         //Make sure exists and is allowed:
         //TODO: move this to render block so we can return the good error in body:
         // elseif (false && !$APage->is_allowed_to_use_module($User)) {
@@ -223,4 +218,3 @@ switch (AdminPage::$request->type) {
         Trace::expose_trace();
     }
 }
-

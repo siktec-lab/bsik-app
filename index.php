@@ -34,14 +34,14 @@ Trace::add_step(__FILE__, "Controller - front index");
 /******************************************************************************/
 Base::configure($conf);
 Trace::add_trace("Loaded Base Configuration Object",__FILE__, $conf);
-Base::connect_db();
+Base::connect_db(); // Will connect to the default db connection and all the others
 Trace::add_trace("Establish db connection",__FILE__);
 
 /******************************************************************************/
 /*********************  LOAD CORE SETTINGS  ***********************************/
 /******************************************************************************/
 if (!CoreSettings::extend_from_database(Base::$db)) {
-    throw new Exception("Cant Load Settings", E_PLAT_ERROR);
+    throw new \Exception("Cant Load Settings", E_PLAT_ERROR);
 }
 
 //Core settings:
@@ -70,9 +70,6 @@ $User->initial_user_login_status();
 Trace::reg_vars(["User signed" => $User->is_signed]);
 Trace::add_trace("User login status",__FILE__, $User->user_data);
 Trace::reg_vars(["User granted privileges" => $User->priv->all_granted(true)]);
-
-// Trace::expose_trace();
-// exit;
 
 /******************************************************************************/
 /************************  FRONT PAGE CONSTANTS  ******************************/
@@ -211,5 +208,3 @@ switch (FrontPage::$request->type) {
         FrontPage::error_page(404);
     }
 }
-
-

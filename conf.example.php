@@ -22,15 +22,20 @@ if (!defined('USE_BSIK_ERROR_HANDLERS')) define('USE_BSIK_ERROR_HANDLERS', true)
 
 /******************************  Configuration - DataBase  *****************************/
 $conf = [];
-//Insert your db credentials this will be used in the system as default connection:
+//Insert your db credentials:
 $conf["db"] = [
-    'host'       => 'localhost',
-    'port'       => '3306',
-    'db'         => 'bsik',
-    'username'   => 'xxxxxxx',
-    'password'   => 'xxxxxxx',
-    'charset'    => 'utf8mb4',
-    'socket'     => null
+    "default" => [ // Default connection is the main db and its required
+        'host'       => 'localhost',
+        'port'       => '3306',
+        'db'         => 'bsik',
+        'username'   => 'xxxxxxx',
+        'password'   => 'xxxxxxx'
+    ],
+    "shared" => [
+        'host'       => 'remotehost',
+        'port'       => '3306',
+        'db'         => 'database',
+        'username'   => 'xxxxxxx',
+        'password'   => 'xxxxxxx'
+    ]
 ];
-
-// Add more configurations here:
