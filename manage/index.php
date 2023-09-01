@@ -5,17 +5,13 @@
 // Creation Date: 10/05/2020
 // Copyright 2020, shlomo hassid.
 /******************************************************************************/
-/*****************************      Changelog       ****************************
-1.0.1:
-    ->Creation - Initial
-            
-*******************************************************************************/
+
 define('USE_BSIK_ERROR_HANDLERS', true);
 
 /******************************  Requires       *****************************/
 require_once '..'.DIRECTORY_SEPARATOR.'bsik.php';
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Trace;
 use \Siktec\Bsik\CoreSettings;
 use \Siktec\Bsik\Api\AdminApi;
@@ -186,14 +182,14 @@ switch (AdminPage::$request->type) {
             Trace::add_trace("Loaded module paths", __FILE__, $APage::$module->paths);
             Trace::add_trace("User check successfully - signed, is-set, is-allowed", __FILE__);
             //Preloads the module endpoints:
-            if (Std::$fs::file_exists($APage::$module->paths["api"])) {
+            if (BsikStd\FileSystem::file_exists($APage::$module->paths["api"])) {
                 include_once($APage::$module->paths["api"]);
             }
         }
         //Execute if everything is ok:
         if ($AApi->request->answer_code() === 0) {
             $AApi->parse_request(
-                Std::$arr::extend($_GET, $_POST) //NOTE: $_REQUEST is not used because it is not always available and will add cookies which we don't want.  
+                BsikStd\Arrays::extend($_GET, $_POST) //NOTE: $_REQUEST is not used because it is not always available and will add cookies which we don't want.  
             ); 
             $AApi->answer(print : true, execute : true, external : true);
         } else {
@@ -218,3 +214,4 @@ switch (AdminPage::$request->type) {
         Trace::expose_trace();
     }
 }
+

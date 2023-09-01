@@ -1,7 +1,7 @@
 <?php
 //Extending the Api of manage core for settings handling:
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Api\Input\Validate;
 use \Siktec\Bsik\Api\EndPoint\ApiEndPoint;
 use \Siktec\Bsik\Api\AdminApi;
@@ -159,7 +159,7 @@ AdminApi::register_endpoint(new ApiEndPoint(
                     engine   : $engine,
                     template : "settings_form"
                 );
-                $set  = Std::$arr::extend($set, $setObj->dump_parts());
+                $set  = BsikStd\Arrays::extend($set, $setObj->dump_parts());
             }
             $Api->request->append_answer_data([
                 "form" => $form,

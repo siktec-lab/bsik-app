@@ -1,6 +1,6 @@
 <?php
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Api\Endpoint\ApiEndPoint;
 use \Siktec\Bsik\Api\AdminApi;
 use \Siktec\Bsik\Api\Input\Validate;
@@ -93,10 +93,10 @@ AdminApi::register_endpoint(new ApiEndPoint(
             //Add the for also:
             if ($args["form"] === true) {
                 $engine = new Template(
-                    cache : Std::$fs::path($Endpoint->working_dir, "templates", "cache")
+                    cache : BsikStd\FileSystem::path($Endpoint->working_dir, "templates", "cache")
                 );
                 $engine->addFolders([
-                    Std::$fs::path($Endpoint->working_dir, "templates")
+                    BsikStd\FileSystem::path($Endpoint->working_dir, "templates")
                 ]);
                 $role["form"] = Components::privileges_form_check($engine, "role_priv_form", $role["priv"], $role["meta"]);
             } else {

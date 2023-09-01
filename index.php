@@ -5,11 +5,7 @@
 // Creation Date: 10/05/2020
 // Copyright 2020, shlomo hassid.
 /******************************************************************************/
-/*****************************      Changelog       ****************************
-1.0.1:
-    ->Creation - Initial
-            
-*******************************************************************************/
+
 define('USE_BSIK_ERROR_HANDLERS', true);
 
 /******************************************************************************/
@@ -17,8 +13,8 @@ define('USE_BSIK_ERROR_HANDLERS', true);
 /******************************************************************************/
 require_once 'bsik.php';
 
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Trace;
-use \Siktec\Bsik\Std;
 use \Siktec\Bsik\Base;
 use \Siktec\Bsik\CoreSettings;
 use \Siktec\Bsik\Render\Templates\Template;
@@ -102,7 +98,7 @@ Trace::reg_vars(["Available pages"  => FrontPage::$pages]);
 /******************************  Global Includes      *****************************/
 //Load global endpoints:
 //TODO: we need to consider this as the possibility of full dynamic front is supported
-if (Std::$fs::file_exists(FrontPage::$paths["global-api"])) {
+if (BsikStd\FileSystem::file_exists(FrontPage::$paths["global-api"])) {
     include_once FrontPage::$paths["global-api"];
 }
 
@@ -177,7 +173,7 @@ switch (FrontPage::$request->type) {
                     //paths for file based page:
                         FrontPage::load_paths(page_dir : ["front", "pages"]);
                     //Preloads the module end point:
-                    if (Std::$fs::file_exists("raw", FrontPage::$paths["page-api"])) {
+                    if (BsikStd\FileSystem::file_exists("raw", FrontPage::$paths["page-api"])) {
                         include_once FrontPage::$paths["page-api"];
                     }
                 } break;

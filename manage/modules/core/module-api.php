@@ -1,6 +1,6 @@
 <?php
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\CoreSettings;
 use \Siktec\Bsik\Api\EndPoint\ApiEndPoint;
 use \Siktec\Bsik\Api\AdminApi;
@@ -50,10 +50,10 @@ AdminApi::register_endpoint(new ApiEndPoint(
     method          : function(AdminApi $Api, array $args, ApiEndPoint $Endpoint) {
 
         $engine = new Template(
-            cache : Std::$fs::path($Endpoint->working_dir, "templates", "cache")
+            cache : BsikStd\FileSystem::path($Endpoint->working_dir, "templates", "cache")
         );
 
-        $engine->addFolders([Std::$fs::path($Endpoint->working_dir, "templates")]);
+        $engine->addFolders([BsikStd\FileSystem::path($Endpoint->working_dir, "templates")]);
 
         $ret = $engine->render("saybye", $args);
 
@@ -94,7 +94,7 @@ AdminApi::register_endpoint(new ApiEndPoint(
         [$status, $ret] = $Api->file(
             name        : "module_file", 
             to          : CoreSettings::$path["manage"].DS."uploaded", 
-            max_bytes   : Std::$fs::format_size_to(10, "MB", "B"),
+            max_bytes   : BsikStd\FileSystem::format_size_to(10, "MB", "B"),
             mime        : ["zip"]
         );
 
@@ -114,7 +114,7 @@ AdminApi::register_endpoint(new ApiEndPoint(
         // Basic cleanup
         $cleanup = function($installer, $delete = "", $clean = false) {
             $installer->close_zip();
-            if (!empty($delete)) Std::$fs::delete_files($delete);
+            if (!empty($delete)) BsikStd\FileSystem::delete_files($delete);
             if ($clean) $installer->clean();
         };
 
@@ -124,7 +124,7 @@ AdminApi::register_endpoint(new ApiEndPoint(
         // Perform sik module installation:
         try {
 
-            $Installer = new ModuleInstall($ret, Std::$fs::path_to("modules")["path"]);
+            $Installer = new ModuleInstall($ret, BsikStd\FileSystem::path_to("modules")["path"]);
             
             // Validate in zip:
             $validation = $Installer->validate_required_files_in_zip();
@@ -268,14 +268,14 @@ AdminApi::register_endpoint(new ApiEndPoint(
 
                 //Save folder copy to trash:
                 //TODO: maybe its a good idea to add here also the db entries.
-                $trash_name = Std::$date::time_datetime("YmdHis")."_module_".$module_obj->module_name.".zip";
-                $temp_zip = Std::$zip::zip_folder(
+                $trash_name = BsikStd\Dates::time_datetime("YmdHis")."_module_".$module_obj->module_name.".zip";
+                $temp_zip = BsikStd\Zip::zip_folder(
                     $module_obj->path, 
-                    Std::$fs::path_to("trash", $trash_name)["path"]
+                    BsikStd\FileSystem::path_to("trash", $trash_name)["path"]
                 );
 
                 //Delete folder:
-                Std::$fs::clear_folder($module_obj->path ,true);
+                BsikStd\FileSystem::clear_folder($module_obj->path ,true);
 
                 //Remove Module entry:
                 $Api::$db->where("name", $module["name"])->delete("bsik_modules", 1);
@@ -328,10 +328,11 @@ AdminApi::register_endpoint(new ApiEndPoint(
         } else {
             $modules = $Api::$db->map("name")->get("bsik_modules");
         }
+        
         foreach ($modules as &$module) {
-            $module["settings"] = Std::$str::parse_jsonc($module["settings"],   onerror: []);
-            $module["menu"]     = Std::$str::parse_jsonc($module["menu"],       onerror: []);
-            $module["info"]     = Std::$str::parse_jsonc($module["info"],       onerror: []);
+            $module["settings"] = BsikStd\Strings::parse_jsonc($module["settings"],   onerror: []);
+            $module["menu"]     = BsikStd\Strings::parse_jsonc($module["menu"],       onerror: []);
+            $module["info"]     = BsikStd\Strings::parse_jsonc($module["info"],       onerror: []);
         }
         $Api->request->answer_data($modules);
         return true;
@@ -429,8 +430,8 @@ AdminApi::register_endpoint(new ApiEndPoint(
         //If we have it load:
         if (!empty($module_installed)) {
             //Load module code:
-            if (Std::$fs::file_exists("modules", [$module_installed["path"], "module.php"])) {
-                $module_file = Std::$fs::path_to("modules", [$module_installed["path"], "module.php"]);
+            if (BsikStd\FileSystem::file_exists("modules", [$module_installed["path"], "module.php"])) {
+                $module_file = BsikStd\FileSystem::path_to("modules", [$module_installed["path"], "module.php"]);
 
                 //Load module:
                 try {

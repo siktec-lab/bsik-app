@@ -1,6 +1,6 @@
 <?php
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Api\EndPoint\ApiEndPoint;
 use \Siktec\Bsik\Api\AdminApi;
 use \Siktec\Bsik\Render\Pages\AdminPage;

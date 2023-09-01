@@ -23,7 +23,7 @@ ini_set('mysql.allow_persistent', 1);
 
 // Add your own commands:
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Base;
 use \Siktec\Bsik\App\Cli;
 use \Siktec\Bsik\Tools\Profiler;
@@ -42,7 +42,7 @@ Base::configure($conf); // Load the configuration
 $bsik_cli = new Cli\Run(cwd : CLI_WORKING_FOLDER);
 
 // Automatically load all commands from the cli folder that start with an underscore
-$list_commands = Std::$fs::list_folder(CLI_COMMANDS_FOLDER);
+$list_commands = BsikStd\FileSystem::list_folder(CLI_COMMANDS_FOLDER);
 foreach ($list_commands ?? [] as $file) {
     /** @var SplFileInfo $file  */
     if ($file->isFile() && $file->getExtension() === 'php' && str_starts_with( $file->getFilename(), "_")) {

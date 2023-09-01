@@ -1,6 +1,6 @@
 <?php
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Render\Blocks\Block;
 use \Siktec\Bsik\Render\Templates\Template;
 use \Siktec\Bsik\CoreSettings;
@@ -54,7 +54,7 @@ class SideMenuBlock extends Block {
         $menu               = [];
         //Prepare menu:
         foreach ($this->Page->menu as $entry) {
-            $parts = Std::$arr::get_from($entry, ["text", "title", "desc", "icon", "action", "sub"], "");
+            $parts = BsikStd\Arrays::get_from($entry, ["text", "title", "desc", "icon", "action", "sub"], "");
             $parts["loaded"] = strtolower($parts["action"]) === $current;
 
             //Save title + desc for later when rendering module:
@@ -74,7 +74,7 @@ class SideMenuBlock extends Block {
             if (!empty($parts["sub"])) {
                 $parts["has_sub"] = true;
                 foreach ($parts["sub"] as $sub) {
-                    $sub_parts = Std::$arr::get_from($sub, ["text", "title", "desc", "icon", "action"], "");
+                    $sub_parts = BsikStd\Arrays::get_from($sub, ["text", "title", "desc", "icon", "action"], "");
                     $sub_parts["loaded"] = $parts["loaded"] && (strtolower($sub_parts["action"]) === $current_sub_menu);
                     if ($sub_parts["loaded"]) {
                         $this->Page::$module->header["sub-title"] = $sub_parts["desc"];

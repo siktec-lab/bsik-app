@@ -2,7 +2,7 @@
 
 /******************************  includes  *****************************/
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Trace;
 use \Siktec\Bsik\Users\User;
 use \Siktec\Bsik\Render\Pages\AdminPage;
@@ -44,6 +44,8 @@ $APage->store("plat-user-fname", $User->user_data["first_name"]);
 $APage->store("plat-user-lname", $User->user_data["last_name"]);
 $APage->store("plat-admin-url-base", CoreSettings::$url["base"]);
 
+
+
 /******************************  Set Body tag  *****************************/
 $APage->body_tag("style=''");
 
@@ -62,20 +64,20 @@ Trace::add_trace("Loaded View Privileges", __FILE__.__LINE__, $APage::$module->c
 
 //Load themes files:
 /* SH: added - 2021-04-03 => Add theme control from DB */
-if ($generic_lib = Std::$fs::file_exists("themes", ["base-dark", "theme.css"])) {
+if ($generic_lib = BsikStd\FileSystem::file_exists("themes", ["base-dark", "theme.css"])) {
     $APage->include("head", "css", "link", ["name" => $generic_lib["url"]]);
     Trace::add_trace("Loaded theme plat stylesheet.", __FILE__.__LINE__);
 }
 //Load module generic files (js, css):
-if ($generic_lib = Std::$fs::file_exists("modules", [AdminPage::$module->module_name, "module.css"])) {
+if ($generic_lib = BsikStd\FileSystem::file_exists("modules", [AdminPage::$module->module_name, "module.css"])) {
     $APage->include("head", "css", "link", ["name" => $generic_lib["url"]]);
     Trace::add_trace("Loaded generic module stylesheet.", __FILE__.__LINE__);
 }
-if ($generic_lib = Std::$fs::file_exists("modules", [AdminPage::$module->module_name, "module.js"])) {
+if ($generic_lib = BsikStd\FileSystem::file_exists("modules", [AdminPage::$module->module_name, "module.js"])) {
     $APage->include("head", "js", "link", ["name" => $generic_lib["url"]]); // Always keep in head - gives more control on needed predefined function declaration
     Trace::add_trace("Loaded generic module script.", __FILE__.__LINE__);
 }
-if ($generic_lib = Std::$fs::file_exists("modules", [AdminPage::$module->module_name, "logic.module.js"])) {
+if ($generic_lib = BsikStd\FileSystem::file_exists("modules", [AdminPage::$module->module_name, "logic.module.js"])) {
     $APage->include("head", "js", "link", ["name" => $generic_lib["url"]]); // Always keep in head - gives more control on needed predefined function declaration
     Trace::add_trace("Loaded generic module script.", __FILE__.__LINE__);
 }
@@ -119,7 +121,7 @@ print $APage->render_template("page", [
     "doc_side_menu"     => $doc_side_menu,
     "doc_module_header" => $doc_module_header,
     "module_content"    => $module_content,
-    "brand"             => "BSIK by SIKTEC - V.1.0.1",
+    "brand"             => "BSIK by SIKTEC - V.1.0.1", //TODO: this should be loaded from settings
     "extra_html"        => $APage->html_container,
     "doc_end"           => $doc_end,
     "demo_notification" => false
