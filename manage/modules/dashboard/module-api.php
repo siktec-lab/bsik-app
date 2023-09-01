@@ -1,6 +1,6 @@
 <?php
 
-use \Siktec\Bsik\Std;
+use \Siktec\Bsik\StdLib as BsikStd;
 use \Siktec\Bsik\Api\Input\Validate;
 use \Siktec\Bsik\Render\Templates\Template;
 use \Siktec\Bsik\Api\AdminApi;
@@ -36,9 +36,9 @@ AdminApi::register_endpoint(new ApiEndPoint(
 
         
         $engine = new Template(
-            cache : Std::$fs::path($Endpoint->working_dir, "templates", "cache")
+            cache : BsikStd\FileSystem::path($Endpoint->working_dir, "templates", "cache")
         );
-        $engine->addFolders([Std::$fs::path($Endpoint->working_dir, "templates")]);
+        $engine->addFolders([BsikStd\FileSystem::path($Endpoint->working_dir, "templates")]);
 
         $ret_hello = $engine->render("sayhello", $args);
         $ret_bye = $Api->call($args, "core.saybye");
