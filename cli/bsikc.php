@@ -2,6 +2,24 @@
 
 require_once __DIR__ . DIRECTORY_SEPARATOR .'..' . DIRECTORY_SEPARATOR . 'bsik.php';
 
+// Force no time limit
+set_time_limit(0);
+
+// Force no memory limit
+ini_set('memory_limit', '540M');
+
+// For mysql make sure that the connection will not be closed connect_timeout, wait_timeout, interactive_timeout, allow_persistent
+ini_set('mysql.connect_timeout', 28800);
+ini_set('mysql.allow_persistent', 1);
+
+/*
+    Make sure that the mysql server has the following settings:
+    wait_timeout=28800
+    net_read_timeout=90
+    net_write_timeout=90
+    interactive_timeout=28800
+    connect_timeout=10
+*/
 
 // Add your own commands:
 
@@ -50,3 +68,5 @@ $bsik_cli->handle(
     argv : null // $_SERVER['argv']
 );
     
+    
+// print "Full: ~" . $prof_full->end(precision: 4) . " sec" . PHP_EOL;
